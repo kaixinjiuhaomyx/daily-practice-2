@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 3000px;
+        }
+    
+    
+    
+      /* # 代表id选择器    只能选一个*/
+      #div1{
+            width: 40px;
+            height: 20px;
+            background: red;
+            color: aqua;
+        }
+        /*标签选择器   选择页面中所有div标签 */
+        div{
+            color: rgb(218, 32, 72);
+        }
+    
+        /* class选择器   可以选几个 */
+        .黄色{
+            height: 20px;
+            width: 50px;
+            background: yellow;
+        }
+       
+        /* 后代选择器 */
+       /* div span{
+           color: green;
+           background: orchid;
+           color: green;
+
+        } */
+        
+        /* 子代选择器 */
+       div>span{
+           color: green;
+           background: rgb(224, 27, 218);
+           color: rgb(55, 17, 223);
+
+        }
+        /* 这里有问题？？？？？？？？？？？ */
+        .why{
+            background: rgb(184, 78, 78);
+           
+        }
+       
+        /* 分组  群组选择器 */
+        p,li{
+            color: brown; 
+        }
+        /* 伪类选择器 hover 鼠标滑过 */
+        a:hover{
+            color: rgb(8, 15, 15);
+
+        }
+        
+    </style>
+
+</head>
+<body>
+    
+<div>1111</div>
+<div id="div1">2222</div>
+<div>3333</div>
+
+<div class="黄色">4444</div>
+<div class="黄色">5555</div>
+<div>6666</div>
+
+<div>
+
+    <span>span1 </span>
+    <a href="#">生生世世</a>
+    <span>span2
+        <span>span孙子</span>
+    </span>
+    <p>儿子
+        <span>孙子</span>
+    </p>
+</div>
+
+<span>span3</span>
+
+<ul id="ul1">
+    <li>li1</li>
+    <li class="why">li2</li>
+    <li class="why">li3</li>
+</ul>
+<a href="#">a标签</a>
+
+
+
+
+
+</body>
+</html>
