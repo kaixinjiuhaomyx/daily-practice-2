@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            /* background: red;
+            background-color: aqua;
+            background-image: url(tu1.png);
+            height: 500px;
+            background-repeat: no-repeat; */
+            /* 水平向右100  向下50 */
+            /* background-position: 100px 50px; */
+            /* left  center  right
+            top   center  bottom */
+
+            /* url 图片地址    水平  竖直 */
+            background: yellow url(tu1.png) no-repeat center 150px;
+        }
+        #div2{
+            background: lawngreen;
+            /* 文本水平对齐方式   left  center  right*/
+            text-align: center;
+            /* 单行文字垂直居中  行高=高度 */
+            height: 50px;
+            line-height: 50px；
+        }
+
+        #div3{
+            /* 字体 */
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            /* 大小 */
+            font-size: 12px;
+            /* 粗细 */
+            font-weight: 400;
+            /* 风格 */
+            font-style: italic;
+            /* 鼠标滑过小手状 */
+            cursor: pointer;
+        }
+        a{
+           /* 让a标签没有下划线 */
+           text-decoration: none;
+           color: aquamarine;
+           
+        }
+        a:link{
+               color: azure;
+           }
+        a:visited{
+                color: brown;
+        }
+        a:hover{
+            color: bisque;
+        }
+        a:active{
+            color: #998877;
+        }
+        body{
+            height: auto;
+        }
+
+        ul{
+            list-style: none;
+            background: gainsboro;
+        }
+
+        ul li{
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- div  块元素 宽度充满屏幕  高度是内容撑的  -->
+    <div id="div1">
+        又一个div
+    </div>
+
+    <div id="div2">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    </div>
+
+    <div id="div3">
+        div3 div3 div3 div3 div3
+    </div>
+    <a href="#">阿里</a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    
+</body>
+</html>
