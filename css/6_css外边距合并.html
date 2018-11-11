@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            width: 30px;
+            height: 40px;
+        } */
+        #div1{
+            background: #ff0000;
+            /* 下边距 */
+            margin-bottom:30px;
+        }
+        #div2{
+            background: #0000ff;
+            margin-top: 50px;
+        }
+        #div3{
+            background: #000;
+            width: 100px;
+            height: 100px;
+            margin-top: 50px;
+        }
+        #div4{
+            background: #05e4e4;
+            width: 50px;
+            height: 50px;
+            margin-top: 30px;
+        }
+        /* 
+            外边距合并
+            1.父元素 overflow：hidden；
+            2.父元素加边框   border；1px solid 颜色；
+            3.父元素 或者子元素浮动
+            4.父元素 或者子元素定位
+         */
+    </style>
+</head>
+<body>
+    <!-- <div id="div1">1</div>
+    <div id="div2">2</div> -->
+
+    <div id="div3">
+        <div id="div4"></div>
+    </div>
+</body>
+</html>
