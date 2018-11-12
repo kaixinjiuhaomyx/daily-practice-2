@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* div{
+            浏览器版本兼容
+            transform:rotate(30deg) ;
+            谷歌前缀
+            -webkit-transform:rotate(30deg) ;
+            火狐前缀
+            -ms-transform: rotate(30deg);
+            -o-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            transform: rotate(30deg);
+        } */
+        /* h1+p{
+            background: #f00;
+        } */
+        /* h1 后边的兄弟 */
+        h1~p{
+            background:yellow;
+        }
+        #div1 p[class='1']{
+            color:tan;
+        }
+        #div2 p[class^='1']{
+            color: #f00;
+        }
+        ul li:first-child{
+            color:lawngreen;
+        }
+        input[type=radio]:checked{
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div1">
+        <h1>1111</h1>
+        <p class="1">222</p>
+        <p class="2">333</p>
+        <p >333</p>
+        <p >333</p>
+        <p>444</p>
+    </div>
+    <div id="div2">
+            <h1>1111</h1>
+            <p class="1">222</p>
+            <p class="12">333</p>
+            <p class="2 1">333</p>
+            <p class="1">333</p>
+            <p>444</p>
+        </div>
+    <p>5555</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <input type="radio" name="1">1
+    <input type="radio" name="1">2
+    <input type="checkbox" name="2">11
+    <input type="checkbox" name="2">22
+    <input type="checkbox" name="2">33
+    <button>按钮</button>
+    <button disabled>按钮</button>
+
+
+</body>
+</html>
