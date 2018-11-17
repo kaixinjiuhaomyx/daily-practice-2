@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>五环</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wuhuan div{
+            width: 200px;
+            height: 200px;
+            border-radius: 150px 150px 150px 150px;
+            position: absolute;
+        }
+        #huan1{
+            border:10px solid blue;
+        }
+        #huan2{
+            border:10px solid #000;
+            left: 230px;
+            top: 0px;
+        }
+        #huan3{
+            border:10px solid red;
+            left: 460px;
+            top: 0px; 
+        }
+        #huan4{
+            border:10px solid yellow;
+            left: 110px;
+            top: 100px;
+        }
+        #huan5{
+            border:10px solid green;
+            left: 340px;
+            top: 100px;
+        }
+        #huan11{
+            border:10px solid blue;
+            z-index: 1;
+            border-bottom-color: transparent;
+            
+        }
+        #huan22{
+            border:10px solid #000;
+            left: 230px;
+            top: 0px;
+            z-index: 1;
+            border-left-color: transparent;
+            /* border-bottom-color:transparent; */
+        }
+        #huan33{
+            border:10px solid red;
+            left: 460px;
+            top: 0px; 
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        #huan44{
+            border:10px solid yellow;
+            left: 110px;
+            top: 100px;
+            /* z-index: 1; */
+        }
+        #huan55{
+            border:10px solid green;
+            left: 340px;
+            top: 100px;
+            z-index: 1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wuhuan">
+        <div id="huan1"></div>
+        <div id="huan2"></div>
+        <div id="huan3"></div>
+        <div id="huan4"></div>
+        <div id="huan5"></div>
+        <div id="huan11"></div>
+        <div id="huan22"></div>
+        <div id="huan33"></div>
+        <div id="huan44"></div>
+        <div id="huan55"></div>
+    </div>
+</body>
+</html>
