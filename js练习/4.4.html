@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fac = 1;
+        var ffc = 0;
+        var k;
+        var s;
+        
+
+        var num = prompt('请输入数字');
+        console.log(dajiecheng(num));
+        function dajiecheng(s){
+            for(var j = 1; j <= s; j = j + 1)
+                { 
+                    console.log('j =',j);
+                    ffc = ffc + jiecheng(j);
+                    console.log(jiecheng(j));
+                    console.log(ffc);
+                }
+
+                return ffc
+            }
+        function jiecheng(k){
+            for(var i = 1; i <= k; i = i + 1)
+                {
+                    console.log('i =',i);
+                    fac = fac * i;
+                    console.log('fac =',fac);
+                }
+                return fac;
+                }  
+         
+        
+
+    </script>
+</body>
+</html>

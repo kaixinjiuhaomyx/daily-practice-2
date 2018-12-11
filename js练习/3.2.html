@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var today = new Date();
+        var year = today.getFullYear();
+        console.log(year);
+        var a = (((year % 4) == 0 ) && ((year % 100) != 0) || ((year % 400) == 0 ) ) ? true : false;
+        console.log(a);
+        if (a)
+            
+             console.log('今年是闰年');
+            
+        else
+             console.log('今年不是闰年');
+        // var today = new Date();
+        // var year = today.getFullYear();
+        // console.log((year%4==0&&year%100!=0)||(year%400==0)?true:false);
+        // var a = (year%4==0&&year%100!=0)||(year%400==0)?true:false;
+        // console.log(a)
+        //  if(a){
+        //      console.log('shi')
+        //  }else{
+        //      console.log('f')
+        //     }
+        
+    </script>
+</body>
+</html>
