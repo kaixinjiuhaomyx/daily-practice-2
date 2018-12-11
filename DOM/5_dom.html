@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">我是div</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <ul>
+        <li class="a">11</li>
+        <li>22</li>
+        <li class="a">33</li>
+        <li>44</li>
+    </ul>
+    <script>
+    
+     //获取元素常用方法
+     //1.document.getElementById()  通过id获取元素 返回dom对象
+    /*
+     var oDiv =  document.getElementById('div1');
+
+     console.log(oDiv);
+     oDiv.style.color = 'yellow';
+    */
+
+     //2.document.getElementsByTagName()  通过li获取元素 返回数组
+     //数组不能style；
+     //ali.style.color = 'red';
+    /*
+    var ali = document.getElementsByTagName('li');
+    console.log(ali);
+    for(var i=0; i<ali.length; i++){
+        ali[i].style.background = 'red';
+    }
+    */
+
+
+    //3.document.getElementsByClassName('') 通过class名获取元素 返回数组
+    
+    /*
+    var aclass = document.getElementsByClassName('a');
+    for(var j=0; j<aclass.length; j++){
+        aclass[j].style.background = 'green';
+    }
+    */
+
+
+    //自己封装函数（听的有点蒙@-@）  还成
+    function getElementsByClass(Clsname){
+        var result = [];
+        var allele = document.getElementsByTagName("*");
+        for(var i=0; i<allele.length; i++){
+            if( allele[i].className == Clsname ){
+                result.push(allele[i]);
+            }
+        }
+        return result 
+    }
+    console.log(getElementsByClass("a"));
+    var aclsname = getElementsByClass('a');
+    for( var t=0; t<aclsname.length; t++){
+        aclsname[t].style.background = 'red';
+    }
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
