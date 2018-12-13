@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        li{
+            float: left;
+            width: 100px;
+            height: 60px;
+            background: red;
+            margin-right: 3px;
+        }
+        #contain div{
+            width: 350px;
+            height: 280px;
+            background: rgb(173, 152, 152);
+            display: none;
+        } 
+        #contain div.active{
+            display: block;
+        }
+        #btn-Box li.select{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+        <div id="contener">
+            <ul id="btn-Box">
+                <li class="select">标题1</li>
+                <li>标题2</li>
+                <li>标题3</li>
+            </ul>
+            <div id="contain">
+                <div class="active">内容1</div>
+                <div>内容2</div>
+                <div>内容3</div>
+            </div>
+        </div>
+
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        var oContain = document.getElementById('contain');
+        var aDiv = oContain.getElementsByTagName('div');
+        
+        console.log(aLi);
+        console.log(aLi.length);
+        for(var i=0; i<3; i++){
+            aLi[i].idx = i;
+            aLi[i].onclick = function(){
+                //console.log(aLi[i]);
+                for(var j=0; j<aLi.length; j++){
+                    aLi[j].className = '';
+                    aDiv[j].className = '';
+                }
+                this.className = 'select';
+                aDiv[this.idx].className = 'active';
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // for(var i=0; i<3; i++){
+        //      aLi[i].onclick = function(){
+        //          console.log('haha'); 
+        //          // for(var j=0; j<aLi.length; j++){
+        //          //     aLi[j].className = '';
+        //      // }
+        //      //this.className = 'select';
+        //      }
+        //  }
+ 
+        // for(var i=0; i<aLi.length; i++){
+        //     aLi[i].onclick = function(){
+        //         console.log(aLi[i]);
+        //     } 
+           
+           
+            // aLi[i].onclick = function(){
+            //     for(var j=0; j<aLi.length; j++){
+            //         aLi[j].className = '';
+                 
+            //     }
+            // console.log(aLi[i]);
+            // this.className = 'select';
+            // }
+        //}
+    
+    </script>
+
+
+   
+</body>
+</html>
