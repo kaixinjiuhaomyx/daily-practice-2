@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        *{
+          margin:0;
+          padding:0;  
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            cursor:pointer;
+        }
+        li:hover{
+            background: blue;
+        }
+        #div{
+            border:black solid 1px;
+            width: 100px;
+            background:palevioletred;
+            display: none;
+            /* border-bottom: 5px; */
+            position: absolute;
+            /* 没定位是不会动的 */
+        }
+        .Li{
+            background:powderblue;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="div">
+
+        <ul id="Li-Box">
+            <li class="Li">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </div>
+   
+       
+
+    <script>
+    
+       
+        var oLiBox = document.getElementById('div');
+        var aLi = document.getElementsByTagName('li');
+        
+        
+        document.oncontextmenu = function(e){
+
+            oLiBox.style.display ='block';
+            oLiBox.style.left = e.clientX +'px';
+            oLiBox.style.top = e.clientY +'px';
+            //console.log(e.clientX);
+            return false;
+           
+            
+        }
+
+        console.log(oLiBox.style.top);
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].onclick = function(){
+                for(var j=0; j<aLi.length; j++){
+                    aLi[j].className = '';
+                    }
+                    this.className = 'Li';
+                }
+            }
+        
+
+
+    </script>
+
+</body>
+</html>
