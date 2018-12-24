@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #img-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            background:rgba(255,255,255,0.5);
+            top:0;
+            left: 0;
+            position: absolute;
+            display: none;
+        }
+        #big-box{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            float: left;
+            display: none;
+            position: relative;
+        }
+        #oImg{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="img-box">
+        <img src="../放大镜/1.jpg" alt="">
+        <span></span>
+    </div>
+    <div id="big-box">
+        <img id="oImg" src="../放大镜/2.jpg" alt="">
+    </div>
+    <script>
+    var aSpan = document.getElementsByTagName('span')[0];
+    var oImgBox = document.getElementById('img-box');
+    var oBigBox = document.getElementById('big-box');
+    var oImg = document.getElementById('oImg');
+
+
+
+    oImgBox.onmousemove = function(e){
+        aSpan.style.display = 'block';
+        oBigBox.style.display = 'block';
+        //console.log(e.clientX);
+        aSpan.style.top = e.clientY-aSpan.offsetWidth/2 +'px';
+        aSpan.style.left = e.clientX-aSpan.offsetWidth/2 +'px';
+        if(aSpan.offsetLeft < 0){
+            aSpan.style.left = 0;
+        }
+        if(aSpan.offsetTop < 0 ){
+            aSpan.style.top = 0
+        }
+        if(aSpan.offsetTop > oImgBox.offsetHeight- aSpan.offsetHeight){
+            aSpan.style.top = oImgBox.offsetHeight - aSpan.offsetHeight + 'px';//加px呀！！！！！别忘了呀
+        }
+        if(aSpan.offsetLeft > oImgBox.offsetWidth - aSpan.offsetWidth){
+            aSpan.style.left = oImgBox.offsetWidth - aSpan.offsetWidth + 'px';
+        }
+
+        var oSpanMaxX = oImgBox.offsetWidth - aSpan.offsetWidth;
+        var oSpanMaxY = oImgBox.offsetHeight - aSpan.offsetHeight;
+        
+        var oImgMax = oImg.offsetWidth - oBigBox.offsetWidth;
+        var oImgMaxY = oImg.offsetHeight - oBigBox.offsetHeight;
+
+        var percentX = aSpan.offsetLeft/oSpanMaxX;
+        var percentY = aSpan.offsetTop/oSpanMaxY;
+
+        oImg.style.left = -percentX*oImgMax + 'px';
+        oImg.style.top = -percentY*oImgMaxY + 'px';
+
+        oImgBox.onmouseout = function(){
+            aSpan.style.display = '';
+            oBigBox.style.display = '';
+        }
+    }
+    console.log(oImg.clientLeft);
+   // console.log(aSpan.offsetWidth);
+   // console.log( percentX );
+    //console.log(oSpanMaxX);
+
+
+    </script>
+</body>
+</html>
