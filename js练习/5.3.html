@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var z = 0;
+        for(var i=1; i<=1000; i++){
+            /*if(z%6 == 0){
+                var a = Pd(i);
+                z++;
+                document.write(a + '<br>');
+            }else{
+                document.write(a + '  ')
+                z++;
+            }*/
+           
+            var a = Pd(i);
+            var k = typeof a;
+            if(k == 'number'){
+                z++;
+                console.log(z);
+                if(z%6 == 0){
+                    document.write(a + '<br>');
+                }else{
+                    document.write(a + ',');
+                }
+            }
+            
+        }
+        function Pd(x){
+            var s = 0;
+           // console.log(x);
+            if(x%3==0 && x%5==0 && x%7==0){
+               return x;
+            }else{
+               return '';
+            }
+           
+
+            //return null
+
+        }
+        /*for(var i=1; i<=1000; i++){
+            if(i%3==0 && i%5==0 && i%7==0){
+                document.write(i);
+                document.write(' ');
+            }
+            
+        }*/
+    </script>
+
+
+</body>
+</html>

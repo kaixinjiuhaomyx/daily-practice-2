@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Resurt(100)*4);
+        console.log(Resurt(1000)*4);
+        console.log(Resurt(10000)*4);
+        console.log(Resurt(10000)*4);
+
+
+        function Resurt(x){
+            var r=0;
+            for(var i=1; i<x; i++){
+                r = Pai(i) + r;
+            }
+            return r;
+        }
+        console.log(Pai(3));
+        function Pai(x){
+            if(x%2 == 0){
+                return (-1/(2*x-1));
+            }else{
+                return (1/(2*x-1));
+            }
+        }    
+    
+    </script>
+</body>
+</html>
