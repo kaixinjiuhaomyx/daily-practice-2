@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+        var A, B, C, D, x;
+        for(var i=1000; i<10000; i++){
+            A = Math.floor(i/1000);
+            B = Math.floor((i-A*1000)/100);
+            C = Math.floor((i-A*1000-B*100)/10);
+            D = Math.floor(i-A*1000-B*100-C*10);
+            if(i%13 == 0){
+                if(B+C == D){
+                    document.write('x=' + i + '<br>');
+                }
+                
+            }
+        }
+    console.log(1234/1000);
+    </script>
+
+</body>
+</html>

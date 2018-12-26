@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+        var x = prompt('请输入x的值','');
+        var y = prompt('请输入y的值','');
+        Min(x, y);
+        console.log('x=',x);
+        console.log('y=',y);
+        console.log('最小值',Min(x,y));
+        function Min(a, b){
+            var t;
+            if(a > b){
+                t = a;
+                a = b;
+            }
+            //console.log('最小值=',a);
+            return a;
+        }
+    
+    </script>
+
+
+</body>
+</html>
