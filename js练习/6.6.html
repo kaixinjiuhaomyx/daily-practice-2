@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var Grade = [];
+        //console.log(Grade);
+        for(var i=1; i<8; i++){
+            var s = prompt('请输入成绩','');
+            Grade = Grade.concat(s);//总容易错呀！！！！！！！！！！！！！！！
+        }
+        console.log(Grade);
+        var sum = 0;
+        for(var j=0; j<Grade.length; j++){
+            sum = sum + Grade[j];
+        }
+        document.write('总成绩=',sum);
+        document.write('平均分=',sum/Grade.length);
+    </script>
+</body>
+</html>

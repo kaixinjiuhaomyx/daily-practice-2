@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        function CollectDigits(s){
+            var New1 = [];
+            for(var i=0; i<s.length; i++){
+                if(s.charAt(i)>='0' && s.charAt(i) <='9'){
+                  // New1 = New1.concat(s.charAt(i)) //返回值为 ["1", "2", "1", "3"]
+                   
+                   New1 = New1 + s.charAt(i);//返回值为1213
+                            }
+            }
+            return New1;
+        }
+        
+        console.log(CollectDigits('kfaj1j213kj'));
+    </script>
+</body>
+</html>
