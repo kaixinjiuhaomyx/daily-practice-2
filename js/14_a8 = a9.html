@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var flag1 = [1,2,3,4,5,6];
+        var flag2 = new Array(1,2,3,4,5,6);
+
+        flag3 = flag2;
+        console.log(flag3);
+
+        var flag4 = [];
+        for(var i=0; i<flag1.length; i++){
+            flag4[i] = flag1[i];
+        }
+        flag1[1] = 100;
+        console.log(flag1);
+        console.log(flag4);
+
+
+    
+    </script>
+</body>
+</html>

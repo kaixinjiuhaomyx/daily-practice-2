@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            对象的性质
+                    字符串要加引号
+            定义方法时
+                    用冒号连接       play：function（）
+                    第二种用等号连接 flag2.sleep = function()
+
+            方法后边要加括号！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+            
+        */
+        //this表示当前对象 this. 就可以取对象的属性了
+
+
+
+
+        //创建对象的方式
+        //对象的直接量
+        var flag = {
+            color:'yellow',
+            size:'middle',
+            play:function(){
+                console.log('成功！！！！！');
+            }
+        }
+        console.log(flag.color);
+        flag.play();
+        var flag2 = new Object();
+        flag2.color = 'gleen';
+        flag2.size = 'small';
+        flag2.sleep = function(){
+            console.log('I am sleep!!!!');
+        }
+        console.log(flag2.sleep);
+        //方法后边要加括号！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        flag2.sleep();
+    
+    </script>
+</body>
+</html>
