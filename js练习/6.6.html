@@ -11,17 +11,38 @@
     
         var Grade = [];
         //console.log(Grade);
-        for(var i=1; i<8; i++){
-            var s = prompt('请输入成绩','');
-            Grade = Grade.concat(s);//总容易错呀！！！！！！！！！！！！！！！
+        for(var i=0; i<7; i++){
+            var s = parseFloat(prompt('请输入成绩','0')) ;//先设个预定值
+            //parseFloat() 函数可解析一个字符串，并返回一个浮点数。
+            //Grade = Grade.concat(s);//总容易错呀！！！！！！！！！！！！！！！
+            
+            if( s<=100 && s>=0){
+                Grade[i] = s;
+            }else{
+                alert('输入有误!!');
+            }
+            
         }
+
         console.log(Grade);
         var sum = 0;
         for(var j=0; j<Grade.length; j++){
             sum = sum + Grade[j];
+            //sum+=Grade[j];
         }
-        document.write('总成绩=',sum);
-        document.write('平均分=',sum/Grade.length);
+        document.write('总成绩='+'<br>',sum);
+        document.write('平均分='+'<br>',sum/Grade.length);
+        document.write('不及格的有');
+        for(var j=0; j<Grade.length; j++){
+            
+            if(Grade[j]<60 && Grade[j]>=0){
+                document.write(Grade[j]);
+
+            }
+        }
+        
+
+        document.write();
     </script>
 </body>
 </html>
