@@ -7,10 +7,27 @@
     <title>fuxi</title>
 </head>
 <style>
+    /* 
+        背景 加图片 图片位置
+        文本 对其方式
+        字体
+     */
     #one{
         background: red;
         color: aquamarine;
-        
+        /* background-color: */
+        width: 500px;
+        height: 300px;
+        /* background-image: url(tu1.png);
+        background-repeat: no-repeat;*/
+        background-position: 50px 300px;
+        /* 合写与分写的语句只能执行一个 */
+        background:blue url(tu1.png) no-repeat center center;
+    }
+    #div1{
+        background: #889900;
+        width: 500px;
+        text-align: center;
     }
 
     .li{
@@ -29,13 +46,16 @@
         text-decoration: none;
         font-family: 'Courier New', Courier, monospace;
         font-size: 70px;
-        font-weight: 599;
-        font-style: italic;
+        font-weight: 200;
+        font-style: normal;
     }
 </style>
 <body>
     <div id="one">
         sjflsjfkdjfls
+    </div>
+    <div id="div1">
+        div
     </div>
     <ul class="ul">
         <li>1</li>
