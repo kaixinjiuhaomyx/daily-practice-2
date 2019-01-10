@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #contener{
+        position:relative;
+    }
+    #contener div{
+        width: 200px;
+        height: 200px;
+        /* border:5px solid; */
+        border-radius:50%;
+        position: absolute;
+    }
+
+    #contener div::after{
+            content:'';
+            display:block;
+            
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left:-8px;
+            top:-8px;
+        }
+
+    #Blue{
+        border:8px solid blue;
+
+    }
+    #Blue::after{
+        border:8px solid blue;
+        z-index: 2;
+        border-bottom-color: transparent;
+    }
+   
+    #Black{
+        border:8px solid black;
+        left:220px;
+        top:0px;
+    }
+    #Black::after{
+        border:8px solid black;
+        z-index: 2;
+        border-left-color: transparent;
+    }
+    #Red{
+        border:8px solid red;
+        left:440px;
+        top:0px;
+    }
+    #Red::after{
+        border:8px solid Red;
+        z-index: 2;
+        border-left-color: transparent;
+    }
+    #Yellow{
+        border:8px solid yellow;
+        left:110px;
+        top:110px;
+    }
+    /* #Yellow::after{
+        border:8px solid yellow;
+    } */
+    #Green{
+        border:8px solid green;
+        left:330px;
+        top:110px;
+    }
+    #Green::after{
+        border:8px solid green;
+        z-index: 2;
+        border-top-color: transparent;
+        border-right-color: transparent;
+
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="contener">
+        <div id="Blue"></div>
+        <div id="Black"></div>
+        <div id="Red"></div>
+        <div id="Yellow"></div>
+        <div id="Green"></div>
+    </div>
+   
+</body>
+</html>
