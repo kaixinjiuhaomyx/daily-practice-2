@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* #top1{
+            height: 50px;
+            background: #ff0123;
+            position:absolute;
+            top:0px;
+            width: 100%;
+            
+                用定位时要有宽高
+            
+        }
+        #center1{
+            background: #c133ff;
+            width:100%;
+            position:absolute;
+            top:60px;
+            bottom: 60px;
+        }
+        #bottom1{
+            height: 50px;
+            background: #00ddc0;
+            position:absolute;
+            bottom: 0px;
+            width:100%;
+        } */
+        html{
+            height: 100%;
+        }
+        body{
+            display:-webkit-flex;
+            /* height: 1000px; */
+            flex-direction: column;
+            height: 100%;
+        }
+
+        #top2{
+            height: 50px;
+            background: #ff0123;
+            width:100%;
+            /* flex-grow: 1; */
+        }
+        #center2{
+            background: #c133ff;
+            width:100%;
+            flex-grow: 1;
+           
+        }
+        #bottom2{
+            height: 50px;
+            background: #00ddc0;
+            /* flex-grow: 1; */
+            width:100%;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="top1"></div>
+    <div id="center1"></div>
+    <div id="bottom1"></div> -->
+
+    <div id="top2"></div>
+    <div id="center2"></div>
+    <div id="bottom2"></div>
+</body>
+</html>
