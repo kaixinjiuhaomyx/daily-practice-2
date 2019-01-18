@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .active{
+            background: pink;
+            border: 1px solid red;
+
+        }
+    
+    </style>
+</head>
+<body>
+    <input type="text" value="请输入" id="tex">
+    <script>
+        //获取焦点内容置空
+        // $('#tex').on('focus',function(){
+        //     // $(this).val('');
+        //     this.value = '';
+        // })
+        // $('#tex').on('blur',function(){
+        //     $(this).val('请输入');
+        // })
+
+        $('#tex').on('focus',function(){
+            //$(this).val('');
+            //1 修改value
+            if(this.value == this.defaultValue){
+                this.value = '';
+            }
+            //2 添加css样式
+            $(this).addClass('active');
+        })
+        $('#tex').on('blur',function(){
+            //$(this).val('');
+            if(this.value == ''){
+                this.value = this.defaultValue;
+            }
+            $(this).removeClass('active');
+        })
+    </script>
+</body>
+</html>
