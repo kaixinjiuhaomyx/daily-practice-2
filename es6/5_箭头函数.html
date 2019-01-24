@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <script>
+
+        /* 
+        箭头函数this指向：
+            箭头函数中this指的是声明时的this   父作用域中的this
+            普通函数中this指的是调用时的this
+        箭头函数不能用于构造函数
+        箭头函数中不能使用arguments
+        
+         */
+
+        // fn1 函数会提升 所以不能在声明函数前调用 
+        // 而fn2方式定义的只会变量提升 所以不能在声明函数前调用
+        //****************************
+        // fn1();
+        // fn2();
+        // function fn1(){
+        //     console.log('fn1');
+        // }    
+        // var fn2 = function(){
+        //     console.log('fn2');
+        // }
+
+
+        //箭头函数******************
+
+        // var fn = (x) =>{
+        //     console.log('fn',x);
+        // }
+        // var c;
+        // fn(c);
+
+        //简写形式******************
+        // var fn = x => console.log('fn',x);
+        // var c;
+        // fn(c);
+
+        // var fn = x => x;
+        //等价于下一行代码***********
+        // var fn = (x) => {return x;}
+        // console.log(fn('1111')); 
+
+
+        //应用解构*******************
+        // var fn = ([a,b]) => {
+        //     console.log('a','b');
+        // }
+        // fn([2,3]);
+
+
+
+         /*
+            this指向问题 
+            函数中 window
+            点击事件this 指向谁的点击事件this指向谁
+            定时器中this window
+            在对象中this指向当前对象
+        */
+
+
+
+        //函数  定时器中  this指向window******
+            // var fn = function(){
+            //     console.log(this);
+            // }
+            // fn();
+
+        //点击事件 this指向点击的事件***********
+        // var oBtn = document.getElementById('btn');
+        // oBtn.onclick = function(){
+        //     console.log(this);
+        // }
+
+        //计时器中 this指向window**********************
+        // var oBtn = document.getElementById('btn');
+        // oBtn.onclick = function(){
+        //     setTimeout(function(){
+        //     console.log(this);
+
+        //     },1000)
+        //     console.log(this);
+        // }
+
+        // oBtn.onclick = () => {
+        //     setTimeout(function(){
+        //     console.log(this);
+
+        //     },1000)
+        //     console.log(this);
+        // }
+
+        //对象中 this指向当前对象
+            // var person = {
+            //     name: 'sxl',
+            //     age: 16,
+            //     say:function(){
+            //         console.log(this);
+            //     }
+            // }
+            // console.log(person);
+
+            // var person = {
+            //     name: 'sxl',
+            //     age: 16,
+            //     say:() => {
+            //         console.log(this);
+            //     }
+            // }
+            // console.log(person);
+            // person.say();
+
+
+    </script>
+</body>
+</html>
