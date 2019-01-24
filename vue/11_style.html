@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="div1">
+            <!-- <div :style="{background:bg,color:col}"> div1</div> -->
+            <!-- <div :style="obj"> div1</div> -->
+            <div :style="[w1,obj]"> div1</div>
+
+
+    </div>
+    
+       
+    
+    <script>
+        let vm1 = new Vue({
+            el:'#div1',
+            data:{
+                bg:'yellow',
+                col:'blue',
+                obj:{
+                    background:'blue',
+                    color:'red'
+                },
+                w1:{
+                    width:'20px',
+                    height:'30px'
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

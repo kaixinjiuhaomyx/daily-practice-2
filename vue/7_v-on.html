@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on</title>
+    <script src="vue.js"></script>
+    <style>
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: #ff0036;
+        }
+    </style>
+</head>
+<body>
+    <!-- 解决冒泡
+        在@click后加.stop 即@click.stop
+        在vue中加event.stopPropagation();阻止事件传播
+
+    
+    -->
+    <div id="div1">
+        <!-- <button v-on:click='fun'>click</button> 等同于下行代码  通常用下行简写-->
+        {{num}}<br>
+        <button @click='fun(2)'>click+2</button>
+         <!-- @click.stop  修饰符  阻止事件冒泡  -->
+            <!-- @click.prevent  修饰符  阻止默认行为  -->
+        <div id="div2" @click = 'click2'>
+            +1
+            <div id="div3" @click = 'click3'>+3</div>
+        </div>
+    </div>
+    <script>
+        let vm1 = new Vue({
+            el:'#div1',
+            data:{
+                num:0,
+            },
+            methods:{
+                fun(a){
+                    // console.log(3);
+                    this.num +=a;
+                    // 在属性里可以直接使用event 就是当前事件
+                    console.log(event);
+                },
+                click2(){
+                    this.num +=1;
+                },click3(){
+                    this.num +=3;
+                    //event.stopPropagation();//阻止事件传播
+                    //event.preventDefault();//阻止默认行为
+
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>

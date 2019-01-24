@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <!-- 
+        v-if    切换量较小时用   多个切换
+        v-show  频繁切换时使用   
+        让template中的内容显示  但不显示div
+     -->
+
+
+
+
+
+
+    <!-- <div id="div1">
+        <div v-if = "mag == 'A'">
+            mag = A
+        </div>
+        <div v-else-if = "mag == 'B'">
+            mag = B
+        </div>
+        <div v-else>
+            mag = 其他
+        </div> -->
+        
+
+
+        <!-- 让template中的内容显示  但不显示div
+            template 是vue里的有效标签       *************************** -->
+        <!-- <div id="div2" >
+            <template v-if = 'mag'>
+                <h1>h1h1h1h1h1h1</h1>
+                <p>ppppppppppppp</p>
+            </template>
+        </div> -->
+
+
+        <div id="div3" >
+            <div v-show = 'mag'>
+                <h1>h1h1h1h1h1h1</h1>
+                <p>ppppppppppppp</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    
+  
+    // let vm1 = new Vue({
+    //     el:'#div1',
+    //     data:{
+    //         mag:'A'
+    //     }
+    // });
+
+
+
+    // let vm2 = new Vue({
+    //     el:'#div2',
+    //     data:{
+    //         mag:'true'
+    //     }
+    // })
+
+
+
+    let vm3 = new Vue({
+        el:'#div3',
+        data:{
+            mag:'true'
+        }
+    })
+    
+    </script>
+</body>
+</html>

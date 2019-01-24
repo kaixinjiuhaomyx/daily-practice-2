@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <!-- 循环数组中元素************************* -->
+    <!-- <ul id="ul1">
+        <li v-for='vue in arrSt'>
+            {{vue}}
+        </li>
+    </ul> -->
+    
+    <!-- 数组中元素为对象 
+         循环单个对象内部标签
+         ****************************************
+    -->
+    
+    <!-- <ul id="ul1">
+        <li v-for='(vue,key) in obj'>
+           {{key}} :{{vue}}
+        </li>  
+    </ul> -->
+    
+    <!-- 数组中元素为对象
+         循环每个对象中相应标签
+         *******************************************
+    -->
+    <ul id="ul1">
+        <li v-for = '(vue,index) in studentLest'>
+            {{index}}学生姓名：{{vue.name}},年纪：{{vue.age}} 
+        </li>
+    </ul>
+
+
+    <!-- <ul id="ul1">
+        (值，键，索引)
+        <li v-for = '(vue,key,index) in obj'>
+            {{index}},{{vue}},{{key}} 
+        </li>
+    </ul>
+    -->
+   
+    <script>
+        // let vm1 = new Vue({
+        //     el:'#ul1',
+        //     data:{
+        //         arrSt:['xiaobei','xiaoqiao','xiaolan','keman'],
+        //         obj:{
+        //             name:'元太',
+        //             age:10
+        //         }        
+        //     }
+        // });
+    
+        let vm1 = new Vue({
+            el:'#ul1',
+            data:{
+                // arrSt:['xiaobei','xiaoqiao','xiaolan','keman'],
+                student:[{
+                    name:'元太',
+                    age:14
+                },
+                {
+                    name:'光彦',
+                    age:10
+                },
+                {
+                    name:"步美",
+                    age:17
+                } 
+                ],
+                obj:{
+                    a:1,
+                    b:2,
+                    c:3,
+                }
+                
+            },
+            //computed是一个属性  放在data里*********************
+            computed:{
+                    studentLest(){
+                        console.log(this); 
+                        return this.student.sort(function(a,b){
+                            return a.age-b.age;;
+                        });
+
+                    }
+            }
+        });
+    
+    
+    </script>
+</body>
+</html>

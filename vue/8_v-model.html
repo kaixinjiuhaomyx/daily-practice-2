@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on</title>
+    <script src="vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <div id="div1">
+        <input type="text" @keyup='fun' v-model='val'>
+        {{num}}
+       
+    </div>
+    <script>
+        let vm1 = new Vue({
+            el:'#div1',
+            data:{
+                num:0,
+                val:''
+            },
+            methods:{
+                fun(){
+                    //下行的if语句可写在input中 @keyup.enter
+                    if(event.keyCode == 13){
+                        console.log(this.val);
+                        this.num = this.val;
+                    }
+                    
+                }
+               
+            }
+           
+        })
+    
+    </script>
+</body>
+</html>

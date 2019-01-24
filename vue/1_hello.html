@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="div1">
+        {{center1}} {{center2}}
+    </div>
+    <script>
+        let vm1 = new Vue({
+            el:'#div1',
+            data:{
+                center1:'Hello!!!',
+                center2:'今天学vue了！！'
+            }
+        }) 
+
+        console.log(vm1.center1,vm1.center2);
+        
+        
+    </script>
+</body>
+</html>
