@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <!-- 父组件 -->
+    <div id="div1">
+        <lei name='醒了不睡了' name1='好好听课吧！'>
+            <div slot='a'>
+                <p>adjflakdjflad</p>
+            </div>
+            <div slot='b'>
+                <input type="text">
+            </div>
+            
+
+        </lei>
+    </div>
+
+
+    <!-- 被调用的子组件 方法1 -->
+    <!-- <script type="text/template" id="xue">
+        <p>子组件{{name}}</p>
+        
+    </script> -->
+
+
+    <!-- 被调用的子组件 方法2 -->
+    <template id="xue">
+        <div>
+        <p>{{name}}{{name1}}</p>
+        
+            <div>
+                <slot name='a'>默认值</slot>
+            </div>
+            
+            <div>
+                <slot name='b'>默认值</slot>
+            </div>
+        </div>
+        
+
+    </template>
+
+    <script>
+        var vm1 = new Vue({
+            el:'#div1',
+            data:{
+
+            },
+            components:{
+                'lei':{
+                    // template:'<h1>这是h1{{name}}</h1>',
+                    template:'#xue',
+                    props:['name','name1']
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

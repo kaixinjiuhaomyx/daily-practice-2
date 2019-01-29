@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="zepto.js"></script>
+    <script src="touch.js"></script>
+    <style>
+    /* 绑定滑动事件是要加touch-action: none */
+    *{
+        touch-action: none;
+    }
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+    
+        // $('#div1').on('touchstart',function(){
+        //     console.log('touchstart');
+        // })
+        // $('#div1').on('touchmove',function(){
+        //     console.log('touchmove');
+        // })
+        // $('#div1').on('touchend',function(){
+        //     console.log('touchend');
+        // })
+       
+       
+       
+        // $('#div1').on('tap',function(){
+        //     console.log('tap');
+        // })
+        // $('#div1').on('click',function(){
+        //     console.log('cick');
+        // })
+
+
+        $('#div1').swipeLeft(function(){
+            console.log('left');
+        })
+        $('#div1').swipeRight(function(){
+            console.log('right');
+        })
+        $('#div1').swipeUp(function(){
+            console.log('up');
+        })
+        $('#div1').swipeDown(function(){
+            console.log('down');
+        })
+
+
+
+
+    </script>
+</body>
+</html>

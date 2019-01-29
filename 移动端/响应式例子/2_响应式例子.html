@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应式</title>
+
+    <script src="../../jq/jquery-1.12.4.js"></script>
+    <style>
+    
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            height: 100px;
+            width: 960px;
+            font-size: 30px;
+            line-height: 100px;
+            background: #ccc;
+            margin:50px auto;
+            text-align: center;
+        }
+        #Img-Box{
+            margin: 0px auto;
+            width: 960px;
+            
+        }
+        #normal{
+            width: 100%;
+        }
+        #n960,#n480{
+            display: none;
+        }
+        #Text-Box{
+            width: 960px;
+            /* height: 230px; */
+            overflow: hidden;
+            margin: 0px auto;
+        }
+        #left{
+            height: 200px;
+            width: 60%;
+            background: #f00;
+            float: left;
+        }
+        #right{
+            background: #00f;
+            width: 35%;
+            height: 200px;
+            float:right;
+
+        }
+        
+           
+        @media screen and (max-width:960px){
+            .title{
+                width: 100%;
+            }
+            #normal{
+                display: none;
+            }
+            #n960{
+                display: block;
+                width: 100%;
+            }
+            #Img-Box{
+                width: 100%;
+            }
+            #Text-Box{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:480px){
+           
+            #n960{
+                display: none;
+            }
+            #n480{
+                display: block;
+                width: 100%;
+            }
+            /* #Text-Box{
+                width: 100%;
+            } */
+            #left{
+                width: 100%;
+                float: none;
+                display: table;
+            }
+            #right{
+                width: 100%;
+                float: none;
+                display: table;
+            }
+            p{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            /* 
+                多行文本垂直居中
+                  父元素： display：table
+                  子元素： display：table-cell
+                          vertical-align
+             */
+        }
+    </style>
+</head>
+<body>
+    <div class="title">页头</div>
+    <div class="title">标题</div>
+    <div id="Img-Box">
+        <img src="../响应式例子/01.jpg" alt="" id="normal">
+        <img src="../响应式例子/01_s_2x.jpg" alt="960" id="n960">
+        <img src="../响应式例子/01_s.jpg" alt="480" id="n480">
+    </div>
+    
+    <div id="Text-Box">
+        <div id="left">
+            <p>sdfa sfa sd lij nv zgbkg dfasfa dvlijnv xzgbkg fasf asdvl ijnvx zgb kg  dfa sfasd vlijnv xzgbk gdfa sfa sdvlij nvxdf asfas dvlijn vx zgbkg dfas fa sd vlij nvxz gbkg zgbkg</p> 
+        </div>
+        <div id="right">
+            <p>sdfa sfa sd lij nv zgbkg dfasfa dvlijnv xzgbkg fasf asdvl ijnvx zgb kg  dfa sfasd vlijnv xzgbk gdfa sfa sdvlij nvxdf asfas dvlijn vx zgbkg dfas fa sd vlij nvxz gbkg zgbkg</p>
+        </div>
+    </div>
+    
+    <div class="title">结尾</div>
+</body>
+</html>

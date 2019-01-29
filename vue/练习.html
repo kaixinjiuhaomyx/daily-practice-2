@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <ul id="ul1">
+        <li v-for ='val in sortStu'>
+            名字：{{val.name}},年纪：{{val.age}}
+        </li>
+    </ul>
+
+
+    <script>
+        var vm1 = new Vue({
+            el:'#ul1',
+            data:{
+                student:[{
+                    name:'元太',
+                    age:14
+                },
+                {
+                    name:'光彦',
+                    age:10
+                },
+                {
+                    name:"步美",
+                    age:17
+                } 
+                ]
+                
+            },
+            computed:{
+                sortStu(){
+                    return this.student.sort(function(a,b){
+                        return a.age - b.age;
+                    });
+                }
+            
+            }
+
+        })
+
+    
+    </script>
+</body>
+</html>

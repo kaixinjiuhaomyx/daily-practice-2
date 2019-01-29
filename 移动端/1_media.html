@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        #div1{
+            background: red;
+        }
+        /* @media screen and (max-width:960px){
+            #div1{background: green;} 
+        }
+        @media screen and (max-width:760px){
+            #div1{background: blue;} 
+        }
+        @media screen and (max-width:560px){
+            #div1{background: rebeccapurple;} 
+        } */
+        @media screen and (orientation:landscape){
+            /*landscape 横屏改样式 */
+            /* portrait是竖屏  */
+            #div1{background: rebeccapurple;} 
+        }
+    
+    </style>
+</head>
+<body>
+        <!-- viewport  width=device-width 页面宽度 = 设备宽度 -->
+    <div id="div1">哈哈哈</div>
+</body>
+</html>
