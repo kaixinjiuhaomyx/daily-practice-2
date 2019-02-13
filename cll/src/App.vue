@@ -2,7 +2,11 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- <router-link to="/about">About</router-link>| -->
+      <!-- <router-link to="/min">Min</router-link>| -->
+      <router-link to="/about/xx/5">About</router-link> |
+      <router-link :to="{name:'mine',params:{name:'zs',id:'001'}}">Min</router-link>|
+      <router-link to="/text">Text</router-link>
     </div>
     <router-view/>
   </div>
