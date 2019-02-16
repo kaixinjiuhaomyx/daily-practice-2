@@ -2,7 +2,7 @@
     <div>
         <h1>
             minmin
-            {{$route.params}}
+            {{$route.params.name}}
             ----
             {{$route.params.id}}
         </h1>

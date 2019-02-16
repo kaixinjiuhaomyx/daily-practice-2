@@ -7,6 +7,10 @@ import Min from './views/Min.vue';
 import Text from './views/Text.vue';
 import A from './views/A.vue';
 import B from './views/B.vue';
+import Count from './views/Count.vue';
+
+// import Error form './views/Error.vue'
+import Error from './views/Error.vue';
 
 
 
@@ -49,6 +53,26 @@ export default new Router({
           component:B,
         }
       ]
+    },{
+      // 重定向
+      // path:'/redirect',
+      // redirect:'/',
+      // 重定向带参数
+      path:'/redirect/:name/:id',
+      redirect:'/about/:name/:id',
     },
+    {
+      path:'/count',
+      component:Count,
+    },{
+      // 别名
+      path:'/',
+      component:Home,
+      alias:'/k',
+    }
+    ,{
+      path:'*',
+      component:Error,
+    }
   ],
 });
