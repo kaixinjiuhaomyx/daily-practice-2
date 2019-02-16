@@ -17,7 +17,9 @@
             </li>
         </ul> -->
         <ul class="container">
-            <li v-for="(obj,index) in movieList" :key="index">
+            <li v-for="(obj,index) in movieList" :key="index" @click="goDetail(obj.id)">
+            <!-- <li v-for="(obj,index) in movieList" :key="index" > -->
+
                 <img :src="obj.images.small" alt="">
                 <div class="info">
                     <h3>{{obj.title}}</h3>
@@ -34,7 +36,6 @@
                 </div>
             </li>
         </ul>
-         
     </div>
 </template>
 
@@ -59,6 +60,13 @@
             })
             .catch();
         },  
+        methods:{
+             goDetail(id){
+                // this.$router.push('/moviedetail/'+id);
+                this.$router.push('/moviedetail/');
+
+            }
+        }
     }
 </script>
 
@@ -79,13 +87,4 @@
         flex-flow: 1;
         margin-left: 0.2rem;
     }
-     /* .loading{
-        position: fixed;
-        left:50%;
-        top:50%;
-        transform: translate(-50%,-50%);
-        width:1rem;
-        height:1rem;
-    } */
-
 </style>
