@@ -8,8 +8,11 @@
   </div>
 </template>
 <script>
+// 让公共的组件在页面显示
+// 先import导入，之后在components中声明
 import CHeader from "@/components/CHeader.vue";
 import CFooter from "@/components/CFooter.vue";
+
 import {mapMutations} from "vuex";
 export default {
   data(){

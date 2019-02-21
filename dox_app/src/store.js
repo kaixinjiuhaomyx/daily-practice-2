@@ -14,6 +14,10 @@ export default new Vuex.Store({
 
       state.color = obj.bgColor;
       state.name = obj.name;
+    },
+    addPhoto(state,photo){
+      // console.log(photo);
+      state.photos = [...photo];
     }
   },
   actions: {

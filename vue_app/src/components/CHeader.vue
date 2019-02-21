@@ -2,7 +2,7 @@
     <div>
         <header >
             <span>首页</span>
-            电影
+            <h4>电影</h4>
         </header>
 
     </div>
@@ -17,6 +17,10 @@
 <style scoped>
     header{
         height: 1rem;
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:100%;
         background: #ff0036;
         text-align: center;
         line-height: 1rem;
@@ -25,6 +29,6 @@
     span{
         position: absolute;
         top: 0px;
-        left:2px;
+        left:0.15rem;
     }
 </style>

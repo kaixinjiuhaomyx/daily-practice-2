@@ -1,0 +1,6 @@
+components:公共组件
+views:页面的组件
+App：最外层的组件。在这写的文件会显示在页面中
+main：主入口文件
+router；路由
+assest；放置静态文件
