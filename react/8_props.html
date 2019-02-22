@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type="text/babel">
+    // props 接受参数  父子组件之间传值
+
+        
+
+        // class My extends React.Component{
+        //     render(){
+        //         return(
+        //             <div>
+        //                 <h1>{this.props.title}</h1>
+        //                 <div>{this.props.desc}</div>
+        //                 <p>
+                        
+        //                     {this.props.children}
+        //                 </p>
+        //             </div>
+        //         )
+        //     }
+        // }
+
+
+        // let My =(props) =>{
+        //     return(
+        //         <div>
+                
+        //             <h1>{props.title}</h1>
+        //             <h2>{props.desc}</h2>
+        //             <h2>{props.children}</h2>
+
+        //         </div>
+                
+        //     )
+        // }
+
+        // 子组件
+        class My extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h1>{this.props.title}</h1>
+                        <h1>{this.props.desca}</h1>
+                    
+                    </div>
+                    
+
+                )
+            }
+        }
+        
+        // 父组件
+        ReactDOM.render(<My title='好累呀' desca='那也得学习'>这里是标签内的内容</My>,document.getElementById('root'))
+    
+    
+    </script>
+
+</body>
+</html>

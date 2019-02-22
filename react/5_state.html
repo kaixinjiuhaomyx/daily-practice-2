@@ -17,18 +17,42 @@
         
         
         class Count extends React.Component{
+            // ******************************************
+            // 不太懂
+            constructor(params){
+                // es6 中属性写在constructor中
+                super(params),
+                // super 定义时给父组件传参
+                this.state = {
+                    // 储存值
+                    num:1
+                }
+                this.addHandle = this.addHandle.bind(this)
+            }
+            // **************************************
+
+
+            // 自己定义的函数没有this
+            addHandle(){
+                // console.log('sdfsd');
+                this.setState({
+                    // num:'2'
+                    // num:this.state.num+1
+                    // num:++this.state.num
+                    num:this.state.num+5
+
+                })
+            }
             render(){
                 return(
                     <div>
-                        <h1></h1>
+                        <h1>{this.state.num}</h1>
+                        <button onClick = {this.addHandle}>add</button>
                     </div>
                 )
             }
         }
-        ReactDOM.render(
-            <Count></Count>
-            document.getElementById('div1')
-        )
+        ReactDOM.render(<Count></Count>,document.getElementById('div1'))
         
     
     

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function fn(a,b){
+            
+        console.log(this,a,b);
+        
+        }
+
+        var obj = {
+            name:'zs'
+        }
+        fn();
+        // 改变this指向
+        fn.call(obj,'aa','vv');
+        fn.apply(obj,['jj','ss']);
+        fn.bind(obj,'rr','ee')();//不调用
+    </script>
+
+</body>
+</html>

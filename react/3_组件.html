@@ -14,21 +14,34 @@
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
     <script type="text/babel">
-    
-        let Hello = () =>{
-            return (
-                <h1>
-                    这里是内容
-                   
+    // 方法1：函数
+        // 组件名要大写
+        // let Hello = () =>{
+        //     return (
+        //         // return的东西就时页面内容
+        //         // 要有结束标签
+        //         <h1>
+        //             这里是内容
+                    
+        //            <input type="text" value="" />
                 
-                </h1>
+        //         </h1>
     
-            )
-        }
-        ReactDOM.render(
-            <Hello></Hello>,document.getElementById('root')
-        );
-    
+        //     )
+        // }
+        // ReactDOM.render(
+        //     <Hello></Hello>,document.getElementById('root')
+        // );
+    // 方法2：class
+            class Hello extends React.Component{
+                render(){
+                    return <h1>hahaha</h1>
+                }
+            }
+
+            ReactDOM.render(
+                <Hello></Hello>,document.getElementById('root')
+            );
     </script>
 </body>
 </html>
