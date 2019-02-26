@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+    </div>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type='text/babel'>
+        class Main extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    todos:['吃饭','睡觉','学习']
+                }
+                this.vear = this.vear.bind(this);
+                // this.setStste = this.setStste.bind(this);
+
+            }
+            vear(val){
+                // console.log('调用了');
+                
+                let todos = [...this.state.todos];
+                todos.push(val);
+                this.setState({
+                    todos
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h2>简单的todolist</h2>
+                        <Put vear={this.vear}></Put>
+                        <List todos={this.state.todos}></List>
+                    </div>
+                )
+       
+            }
+        }
+
+        class Put extends React.Component{
+            constructor(props){
+                super(props)
+                this.btn = this.btn.bind(this)
+            }
+            btn(){
+                // console.log(this.refs.name.value)
+                
+
+                // // console.log(this);
+                if(this.refs.name.value != ''){
+                    
+                    this.props.vear(this.refs.name.value);
+
+                    this.refs.name.value = '';
+                }
+            }
+            render(){
+               
+                //  return(
+                //     <div>
+                //         <input type='text' ref='name'/>
+                //         <button onClick={()=>{
+                //             if(this.refs.name.value != ''){
+                //                 this.props.vear(this.refs.name.value);
+                //                 this.refs.name.value = '';
+                //             }
+
+                //         }}>add</button>
+                    
+                //     </div>
+                // ) 
+
+              
+                return(
+                    <div>
+                        <input type='text' ref='name'/>
+                        <button onClick={this.btn}>add</button>
+                    
+                    </div>
+                )
+            }
+        }
+
+        class List extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <ul>
+                            {
+                                this.props.todos.map(function(val,index){
+                                    return <li key={index}>{val}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Main></Main>,document.getElementById('root'));
+    </script>
+</body>
+</html>

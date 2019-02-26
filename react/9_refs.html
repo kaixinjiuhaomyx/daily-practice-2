@@ -22,12 +22,18 @@
                 this.btn = this.btn.bind(this)
             }
             btn(){
-                console.log( this.refs.name.value);
+                // console.log( this.refs.name.value);
+                console.log( this.myInput);
+
             }
             render(){
                 return(
                     <div>
                         <input type="text" ref='name'/>
+                        有问题呀  在多看看吧！！！！！！！！！！！！！！！！！！！！！！！！！
+                        <input type="text" ref={ input => {this.myInput = input}}/>
+
+
                         <br/>
                         <button onClick={this.btn}>click</button>
                     
