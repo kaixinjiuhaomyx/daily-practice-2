@@ -7,24 +7,69 @@
     <title>Document</title>
 </head>
 <body>
-        <script src="react.development.js"></script>
-        <script src="react-dom.development.js"></script>
-        <script src="browser.min.js"></script>
-        <script type="text/babel">
+    <div id="root">
 
 
-        
-         class componentName extends Component {
-          render() {
-            return (
-              <div>
-                
-              </div>
-            )
-          }
+    </div>
+  <script src="react.development.js"></script>
+  <script src="react-dom.development.js"></script>
+  <script src="browser.min.js"></script>
+  <script type="text/babel">
+
+
+  
+    class Main extends React.Component {
+      constructor(props){
+        super(props)
+        this.state = {
+          tNum :80
         }
-        
-        
-        </script>
+      }
+      change(){
+        this.setState({
+          tNum : tNum -20
+        })
+        console.log('调到了');
+      }
+      render(){
+        return (
+          <div>
+            <h2>剩余士兵数量{this.state.tNum}</h2>
+            <Bing name='A' num='100' change={this.change}></Bing>
+            
+            <Bing name='B' num='20'></Bing>
+          </div>
+        )
+      }
+    }
+
+    class Bing extends React.Component{
+      constructor(props){
+        super(props)
+        this.state = {
+          
+        }
+          this.btn = this.btn.bind(this);
+      }
+      btn(){
+        console.log(this);
+        console.log(this.props.change);
+
+        this.props.change
+      }
+      render(){
+        return(
+          <div>
+            <div>将军{this.props.name}有士兵：{this.props.num}</div>
+            <input type='text'/>
+            <button onClick={this.btn}>调兵</button>
+          </div>
+        )
+      }
+    }
+  
+  ReactDOM.render(<Main></Main>,document.getElementById('root'))
+
+  </script>
 </body>
 </html>
