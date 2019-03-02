@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+    </div>
+  <script src="react.development.js"></script>
+  <script src="react-dom.development.js"></script>
+  <script src="browser.min.js"></script>
+  <script type="text/babel">
+
+    class Main extends React.Component {
+      constructor(props){
+        super(props)
+        this.state = {
+          tNum : 80,
+          bgA : 100,
+          bgB : 20
+        }
+        this.change = this.change.bind(this)
+      }
+      change(ll,val){ 
+       
+        // console.log('调到了');
+          if(this.state.tNum -ll >= 0){
+             this.setState({
+              tNum : this.state.tNum - ll,
+              ['bg'+ val]: parseFloat(this.state['bg'+ val]) + parseFloat(ll),
+            })
+          }else{
+            alert('兵士不足！！！');
+          }
+      }
+      render(){
+        return (
+          <div>
+            <h2>剩余士兵数量{this.state.tNum}</h2>
+            <Bing name='A' num={this.state.bgA} change={this.change}></Bing>
+            <Bing name='B' num={this.state.bgB} change={this.change}></Bing>
+          </div>
+        )
+      }
+    }
+    class Bing extends React.Component{
+      constructor(props){
+        super(props)
+          this.btn = this.btn.bind(this);
+      }
+      btn(name){
+        // console.log(this);
+        var ll = this.refs.BB.value;
+        var kk = this.props.name;
+        this.props.change(ll,kk);
+        // console.log(this.refs.BB.value);
+        this.refs.BB.value = '';
+      }
+      render(){
+        return(
+          <div>
+            <div>将军{this.props.name}有士兵：{this.props.num}</div>
+            <input type='number' min='1' max='100' ref='BB'/>
+            <button onClick={this.btn}>调兵</button>
+          </div>
+        )
+      }
+    }
+  ReactDOM.render(<Main></Main>,document.getElementById('root'))
+  </script>
+</body>
+</html>

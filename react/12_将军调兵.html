@@ -8,41 +8,60 @@
 </head>
 <body>
     <div id="root">
-
-
     </div>
   <script src="react.development.js"></script>
   <script src="react-dom.development.js"></script>
   <script src="browser.min.js"></script>
   <script type="text/babel">
 
-
-  
     class Main extends React.Component {
       constructor(props){
         super(props)
         this.state = {
-          tNum :80
+          tNum : 80,
+          bg1 : 100,
+          bg2 : 20
         }
+        this.change = this.change.bind(this)
+        this.change1 = this.change1.bind(this)
       }
-      change(){
-        this.setState({
-          tNum : tNum -20
-        })
-        console.log('调到了');
+      change(ll){ 
+       
+        // console.log('调到了');
+          if(this.state.tNum >= 0){
+             this.setState({
+              tNum : this.state.tNum - ll,
+              bg1 : parseFloat(this.state.bg1) + parseFloat(ll),
+            })
+          }else{
+            alert('兵士不足！！！');
+          }
+          
+          
+      }
+      change1(ll){
+       
+        if(this.state.tNum - ll >= 0){
+          this.setState({
+            tNum : this.state.tNum - ll,
+            bg2 : this.state.bg2 + ll
+          })
+          
+        }
+          else{
+            alert('兵士不足！！！')
+          }
       }
       render(){
         return (
           <div>
             <h2>剩余士兵数量{this.state.tNum}</h2>
-            <Bing name='A' num='100' change={this.change}></Bing>
-            
-            <Bing name='B' num='20'></Bing>
+            <Bing name='A' num={this.state.bg1} change={this.change}></Bing>
+            <Bing name='B' num={this.state.bg2} change={this.change1}></Bing>
           </div>
         )
       }
     }
-
     class Bing extends React.Component{
       constructor(props){
         super(props)
@@ -52,24 +71,23 @@
           this.btn = this.btn.bind(this);
       }
       btn(){
-        console.log(this);
-        console.log(this.props.change);
-
-        this.props.change
+        // console.log(this);
+        var ll = this.refs.BB.value;
+        this.props.change(ll);
+        console.log(this.refs.BB.value);
+        this.refs.BB.value = '';
       }
       render(){
         return(
           <div>
             <div>将军{this.props.name}有士兵：{this.props.num}</div>
-            <input type='text'/>
+            <input type='number' min='1' max='100' ref='BB'/>
             <button onClick={this.btn}>调兵</button>
           </div>
         )
       }
     }
-  
   ReactDOM.render(<Main></Main>,document.getElementById('root'))
-
   </script>
 </body>
 </html>
