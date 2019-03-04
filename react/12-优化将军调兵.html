@@ -19,42 +19,29 @@
         super(props)
         this.state = {
           tNum : 80,
-          bg1 : 100,
-          bg2 : 20
+          bgA : 100,
+          bgB : 20
         }
         this.change = this.change.bind(this)
-        this.change1 = this.change1.bind(this)
       }
-      change(ll){ 
+      change(ll,val){ 
        
         // console.log('调到了');
-          if(this.state.tNum >= 0){
+          if(this.state.tNum -ll >= 0){
              this.setState({
               tNum : this.state.tNum - ll,
-              bg1 : parseFloat(this.state.bg1) + parseFloat(ll),
+              ['bg'+ val]: parseFloat(this.state['bg'+ val]) + parseFloat(ll),
             })
           }else{
             alert('兵士不足！！！');
-          }
-      }
-      change1(ll){
-       
-        if(this.state.tNum - ll >= 0){
-          this.setState({
-            tNum : this.state.tNum - ll,
-            bg2 : this.state.bg2 + ll
-          })
-        }
-          else{
-            alert('兵士不足！！！')
           }
       }
       render(){
         return (
           <div>
             <h2>剩余士兵数量{this.state.tNum}</h2>
-            <Bing name='A' num={this.state.bg1} change={this.change}></Bing>
-            <Bing name='B' num={this.state.bg2} change={this.change1}></Bing>
+            <Bing name='A' num={this.state.bgA} change={this.change}></Bing>
+            <Bing name='B' num={this.state.bgB} change={this.change}></Bing>
           </div>
         )
       }
@@ -62,16 +49,14 @@
     class Bing extends React.Component{
       constructor(props){
         super(props)
-        this.state = {
-          
-        }
           this.btn = this.btn.bind(this);
       }
-      btn(){
+      btn(name){
         // console.log(this);
         var ll = this.refs.BB.value;
-        this.props.change(ll);
-        console.log(this.refs.BB.value);
+        var kk = this.props.name;
+        this.props.change(ll,kk);
+        // console.log(this.refs.BB.value);
         this.refs.BB.value = '';
       }
       render(){

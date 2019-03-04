@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .a{
+            background: #ff0036;
+            color: #003480;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        
+        class Main extends React.Component {
+            constructor(proms){
+                super(proms)
+                this.state = {
+                    mge:''
+                }
+                this.change = this.change.bind(this);
+            }
+            
+            change(event){
+                this.setState({
+                    mge : event.target.value
+                })
+            }
+
+            render() {
+                let a = {
+                    background:'green'
+                }
+                return (
+                <div>
+                    <h3 style={a}>试一试</h3>
+                    <h3 style={{background:'blue'}}>试一试</h3>
+                    <div className='a'>{this.state.mge}</div>
+                    <input type="text" onChange={this.change}/>
+                </div>
+                )
+            }
+        }
+        ReactDOM.render(<Main></Main>,document.getElementById('root'));
+    
+    
+    </script>
+</body>
+</html>
