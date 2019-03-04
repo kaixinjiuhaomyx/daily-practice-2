@@ -59,16 +59,6 @@
             }
 
             class Add extends React.Component {
-            //     constructor(params) {
-            //     super(params);
-            //     this.add = this.add.bind(this);
-            // }
-
-            // add(){
-            //     this.props.addHandler( this.myInput.value );
-            //     // 清空输入框值
-            //     this.myInput.value = "";
-            // }
                 render() {
                     return (
                         <div>
@@ -84,17 +74,10 @@
                 render() {
                     return (
                         <ul>
-                            {
-                                this.props.todos.map((task,index)=>{
-                                    return (
-                                        <li key={index}>
-                                            <input type="checkbox" defaultChecked={task.isActive}/>
-                                            <span>{task.name}</span>
-                                            <button>删除</button>
-                                        </li>
-                                    )
-                                })
-                            }
+                            <li>
+                                <span>吃饭</span>
+                                <button>删除</button>
+                            </li>
                         </ul>
                     )
                 }
