@@ -4,56 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .a{
-            background: #ff0036;
-            color: #003480;
-        }
-    
-    
-    </style>
+    <title>try one try</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+
+    </div>
 
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
     <script type="text/babel">
-        
-        class Main extends React.Component {
-            constructor(proms){
-                super(proms)
-                this.state = {
-                    mge:''
-                }
-                this.change = this.change.bind(this);
+    
+    class Main extends React.Component {
+        constructor(params){
+            super(params)
+            this.state={
+                todos:['吃饭','睡觉','学习']
             }
-            
-            change(event){
-                this.setState({
-                    mge : event.target.value
-                })
-            }
-
-            render() {
-                let a = {
-                    background:'green'
-                }
-                return (
-                <div>
-                    <h3 style={a}>试一试</h3>
-                    <h3 style={{background:'blue'}}>试一试</h3>
-                    <div className='a'>{this.state.mge}</div>
-                    <input type="text" onChange={this.change}/>
-                </div>
-                )
-            }
+            this.tran = this.tran.bind(this);
         }
-        ReactDOM.render(<Main></Main>,document.getElementById('root'));
+        tran(zz){
+            console.log('调到了');
+            var todos = [...this.state.todos];
+            todos.push(zz);
+            
+            this.setState({
+                todos,
+            })
+
+           
+        }
+        render() {
+            return (
+                <div>
+                    <h1>简单的todolist</h1>
+                    <Add tran = {this.tran}></Add>
+                    <List todos = {this.state.todos}></List>
+                </div>
+            )
+        }
+    }
+
+    class Add extends React.Component {
+        constructor(params){
+            super(params)
+            this.change = this.change.bind(this)
+        }
+        change(){
+            var zz = this.refs.name.value;
+            this.props.tran(zz);
+            this.zz = '';
+            
+            
+            // console.log(this.refs.name.value);
+        }
+        render() {
+            return (
+                <div>
+                    <input type="text" ref='name'/>
+                    <button onClick={this.change}>Add</button>
+                </div>
+            )
+        }
+    }
+
+    class List extends React.Component {
+        render() {
+            return (
+                <div>
+                    <ul>
+                        {
+                            this.props.todos.map((val,index) =>{
+                                return(
+                                    <li key={index}>{val}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Main></Main>,document.getElementById('root'));    
     
     
     </script>
 </body>
-</html>
+</html> 
