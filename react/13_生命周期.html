@@ -5,31 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+      .a{
+        color:red;
+      }
+    
+    </style>
 </head>
 <body>
+  <div id="root"></div>
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
     <script type='text/babel'>
-        
-        class Main extends Component {
+        // react中两种组件的区别
+        // 有状态的：有this.state和this.props可以使用动态的属性
+        // 无状态的：纯显示数据 
+
+
+      // 1.先到构造函数constructor，声明属性和方法
+      // 2.componentWillMount()组件将要挂载 
+      // 3.render()渲染到页面
+
+        class Main extends React.Component {
             constructor(props){
                 super(props)
                 this.state = {
-                    opacity:1
+                  opacity : 1
                 }
             }
-          render() {
+
+
+          // style不能提出来？？？？？？？？？？？？？？
+          // style={
+          //   opacity:1
+          // }
+          
+
+          // 组件将要挂载
+          componentWillMount(){
+            // 写定时器
+            setInterval(() => {
+              if(this.state.opacity <= 0){
+                this.setState({
+                  opacity : 1
+                });
+              }else{
+                this.setState({
+                  opacity : this.state.opacity - 0.1,
+                  // color : 'red'
+                });
+              }
+              
+         
+          },500)
+          
+        }
+          // 组件是否更新  返回true就更新  false就不更新
+          // shouldComponentUpdate(nextProps, nextState){
+          //   console.log('shouldComponentUpdate',nextProps, nextState);
+          //   return false;
+          // }
+          
+          // 组件更新前
+          // componentWillUpdate(nextProps, nextState){
+          //   console.log('componentWillUpdate',nextProps, nextState);
+          // }
+
+          // 页面更新完了 render完了  再操作
+          // conponentDidUpdate(nextProps, nextState){
+          //   console.log('conponentDidUpdate',nextProps, nextState);
+          // }
+
+
+          render(){
+            // 解构  相当于  let {name,age} = {name:'zs',age:12}//name是zs age是12
+            let {opacity} = this.state;
             return (
               <div>
-                
-                <h1>hhhhhhhhhh</h1>
+                <h1 style={{opacity}} className={'a'}>看这里！！！！！！</h1>
+                <button>删除组件</button>
               </div>
             )
           }
         }
         
-        React.render(<Main></Main>,document.getElementById('root'));
+        ReactDOM.render(<Main></Main>,document.getElementById('root'));
     
     
     </script>

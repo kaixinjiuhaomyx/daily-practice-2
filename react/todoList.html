@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>todoList practice</title>
+    <!-- 13分钟 -->
+    <style>
+        .active{
+            background: #ff0036;
+        }
+    
+    </style>
 </head>
 <body>
+    <!-- 当元素不固定时key不能用index
+        删除时会有错误 -->
     <div id="root">
 
     </div>
@@ -21,27 +30,112 @@
                     this.state ={
                         todos:[
                             {
+                                id:1,
                                 name:'吃饭',
                                 isActive:false
                             },
                             {
+                                id:2,
                                 name:'睡觉',
                                 isActive:false
                             },
                             {
+                                id:3,
                                 name:'敲代码',
-                                isActive:true
+                                isActive:false
+                            }
+                        ],
+                        showTodos:[
+                        {
+                                id:1,
+                                name:'吃饭',
+                                isActive:false
+                            },
+                            {
+                                id:2,
+                                name:'睡觉',
+                                isActive:false
+                            },
+                            {
+                                id:3,
+                                name:'敲代码',
+                                isActive:false
                             }
                         ]
                     }
+                    this.addHander = this.addHander.bind(this);
+                    this.changHander = this.changHander.bind(this);
+                    this.delHander = this.delHander.bind(this);
+                    this.searchHander = this.searchHander.bind(this);
+
                 }
+
+                addHander(val){
+                    // console.log('调到了');
+                    let todos = [...this.state.todos];
+                    todos.push({name:val,isActive:false,id:(new Date()).getTime()});
+                    this.setState({
+                        todos,
+                        showTodos : todos
+
+                    })
+                }
+
+                changHander(id){
+                    // **************************************************************************************************
+                    // console.log(index);
+                    // todos 数组中id是参数id的isActive = !isActive
+                    // 找到数组中id = 参数id 的元素的索引index
+                    let index = this.state.todos.findIndex(function(obj,index){
+                        return obj.id == id
+                    })
+                    console.log(index);
+                    let todos = [...this.state.todos];
+                    // 2.修改数组中索引是index的元素的isActive  =！isActive
+                    todos[index].isActive =! todos[index].isActive;
+                  
+                  
+                  
+                    // let todos = [...this.state.todos];
+                    // todos[index].isActive =! this.state.todos[index].isActive
+                    this.setState({
+                         todos : todos,
+                         showTodos : todos
+
+                    })
+                }
+
+                delHander(id){
+                    // console.log(index);
+                    // 删除
+                    let todos = this.state.todos.filter(
+                        (obj) => {
+                            return obj.id != id
+                        }
+                    )
+                    this.setState({
+                         todos,
+                         showTodos : todos
+                    })
+                }
+                
+                searchHander(val){
+                    console.log(val);
+                    let showTodos = this.state.todos.filter((obj)=>{
+                        return obj.name.includes(val)
+                    })
+                    this.setState({
+                        showTodos
+                    })
+                }
+
                 render() {
                     return (
                         <div>
                         <h1>todoList</h1>
-                        <Search></Search>
-                        <Add></Add>
-                        <List></List>
+                        <Search searchHander = {this.searchHander}></Search>
+                        <Add addHander = {this.addHander}></Add>
+                        <List todos = {this.state.showTodos} changHander = {this.changHander} delHander = {this.delHander}></List>
                         </div>
                     )
                 }
@@ -52,18 +146,39 @@
                     return (
                         <div>
                         <span>搜索：</span>
-                        <input type="text"/>
+                        <input type="text" onChange = {
+                            (e) => {
+                                this.props.searchHander(e.target.value);
+                            }
+                        }/>
                         </div>
                     )
                 }
             }
 
             class Add extends React.Component {
+                constructor(params){
+                    super(params)
+                    this.state = {
+
+                    }
+                    this.add = this.add.bind(this);
+                }
+               
+                add(){
+                    if( this.myInput.value == ''){
+
+                    }else{
+                        this.props.addHander(this.myInput.value);
+                        this.myInput.value = '';
+                    }
+                    
+                }
                 render() {
                     return (
                         <div>
                             <span>添加：</span>
-                            <input type='text'/>
+                            <input type='text' ref={  input => {this.myInput = input}  }/>
                             <button onClick={this.add}>添加</button>
                         </div>
                     )
@@ -71,14 +186,35 @@
             }
 
             class List extends React.Component {
+                constructor(params){
+                    super(params)
+                    this.state = {
+
+                    }
+                }
                 render() {
                     return (
-                        <ul>
-                            <li>
-                                <span>吃饭</span>
-                                <button>删除</button>
-                            </li>
-                        </ul>
+                        <div>
+                            <ul>
+                                {
+                                    this.props.todos.map((val,index)=>{
+                                        return(
+                                            <li key={val.id} className = {val.isActive ? 'active' : ''}>
+
+                                                <input type='checkbox' defaultChecked={val.isActive} onClick={() => {
+                                                    this.props.changHander(index);
+                                                }}/>
+                                                <span>{val.name}</span>
+                                                <button onClick = { () =>{
+                                                    this.props.delHander(val.id)
+                                                }}>删除</button>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                        
                     )
                 }
             }
