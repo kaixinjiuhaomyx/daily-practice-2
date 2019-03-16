@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            background: #ff0000;
+            width: 200px;
+            height: 200px;
+        }
+        #div2{
+            background: #0000ff;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        div1
+        <div id="div2">
+            div2
+        </div>
+    </div>
+
+    <a href="http:www.baidu.com" id="btn">百度</a>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        var oBtn = document.getElementById('btn');
+
+        oDiv1.onclick = function(e){
+            console.log('div1111');
+        }
+        oDiv2.onclick = function(e){
+            console.log('div2222');
+            // 阻止冒泡
+            e.stopPropagation();
+                // ie
+            e.cancelBubble = true;
+        }
+        oBtn.onclick = function(e){
+            console.log('阻止默认行为');
+
+            // 所有浏览器都可以
+            return false;
+            e.preventDefault();
+                // ie
+            e.returnValue = false;
+        }
+    
+    
+    </script>
+</body>
+</html>

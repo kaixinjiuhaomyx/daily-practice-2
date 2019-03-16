@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       
+        // 定义一个Person类 属性
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        // 方法写在原型下
+        Person.prototype.say = function(){
+            console.log('say的方法');
+        }
+
+
+        // 通过Coder去继承Person的属性和方法
+        // 定义Coder
+        function Coder(name,age){
+            // this指向c1
+            // 调用父类的Person.call 继承属性
+            Person.call(this,name,age);
+        }
+
+        // 继承父类的方法
+        // 另Coder的原型为Person，所以Coder中会存在Person的方法
+        Coder.prototype = new Person();
+        // 原型中本应有一个constructor属性指向构造函数Coder，但Person下没有，所以要加上
+        Coder.prototype.constructor = Coder;
+        var c1 = new Coder('小汪',4);
+        // 调用方法
+        c1.say();
+    </script>
+</body>
+</html>

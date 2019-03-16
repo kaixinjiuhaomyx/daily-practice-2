@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            background: #ff0000;
+            width: 200px;
+            height: 200px;
+        }
+        #div2{
+            background: #0000ff;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        div1
+        <div id="div2">
+            div2
+        </div>
+    </div>
+    <script>
+        var oDiv = document.getElementById('div1');
+        // oDiv.onclick = function(e){
+        //     // e就取到事件  function为事件处理函数
+        //     console.log(this);
+        //     // this 当前对象的引用 谁.onclick this就是谁
+        //     console.log(e.target);
+        //     // target事件源
+        // }
+    
+        // oDiv.addEventListener('click',function(){
+        //     // 括号中参数1是事件名，参数2是事件处理函数，参数3代表捕获还是冒泡（false冒泡 true捕获）
+            
+        //     console.log('div1');
+
+        // },false);
+    
+    </script>
+</body>
+</html>
