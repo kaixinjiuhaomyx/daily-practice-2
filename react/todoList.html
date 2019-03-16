@@ -31,6 +31,7 @@
                         todos:[
                             {
                                 id:1,
+<<<<<<< HEAD
                                 name:'吃饭',
                                 isActive:false
                             },
@@ -48,6 +49,8 @@
                         showTodos:[
                         {
                                 id:1,
+=======
+>>>>>>> 371161d7a2f333a61efac4187758ac458bbf6437
                                 name:'吃饭',
                                 isActive:false
                             },
@@ -66,8 +69,11 @@
                     this.addHander = this.addHander.bind(this);
                     this.changHander = this.changHander.bind(this);
                     this.delHander = this.delHander.bind(this);
+<<<<<<< HEAD
                     this.searchHander = this.searchHander.bind(this);
 
+=======
+>>>>>>> 371161d7a2f333a61efac4187758ac458bbf6437
                 }
 
                 addHander(val){
@@ -75,6 +81,7 @@
                     let todos = [...this.state.todos];
                     todos.push({name:val,isActive:false,id:(new Date()).getTime()});
                     this.setState({
+<<<<<<< HEAD
                         todos,
                         showTodos : todos
 
@@ -126,6 +133,27 @@
                     })
                     this.setState({
                         showTodos
+=======
+                        todos 
+                    })
+                }
+
+                changHander(index){
+                    // console.log(index);
+                    let todos = [...this.state.todos];
+                    todos[index].isActive =! this.state.todos[index].isActive
+                    this.setState({
+                         todos
+                    })
+                }
+
+                delHander(val){
+                    // console.log(index);
+                    let todos = [...this.state.todos];
+                    todos.splice(val,1);
+                    this.setState({
+                         todos
+>>>>>>> 371161d7a2f333a61efac4187758ac458bbf6437
                     })
                 }
 
@@ -133,9 +161,15 @@
                     return (
                         <div>
                         <h1>todoList</h1>
+<<<<<<< HEAD
                         <Search searchHander = {this.searchHander}></Search>
                         <Add addHander = {this.addHander}></Add>
                         <List todos = {this.state.showTodos} changHander = {this.changHander} delHander = {this.delHander}></List>
+=======
+                        <Search></Search>
+                        <Add addHander = {this.addHander}></Add>
+                        <List todos = {this.state.todos} changHander = {this.changHander} delHander = {this.delHander}></List>
+>>>>>>> 371161d7a2f333a61efac4187758ac458bbf6437
                         </div>
                     )
                 }
@@ -206,7 +240,11 @@
                                                 }}/>
                                                 <span>{val.name}</span>
                                                 <button onClick = { () =>{
+<<<<<<< HEAD
                                                     this.props.delHander(val.id)
+=======
+                                                    this.props.delHander(index)
+>>>>>>> 371161d7a2f333a61efac4187758ac458bbf6437
                                                 }}>删除</button>
                                             </li>
                                         )
