@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333 </li>
+
+    </ul>
+
+    <script>
+        function a(){
+            console.log(this);
+        }
+        // 函数this指向Window
+        // a();
+        
+        setTimeout(function(){
+            console.log(this);
+        },100);
+        // 定时器中this指向Window
+
+        var aLi = document.getElementsByTagName('li');
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].onclick = function(){
+                setTimeout((function(){
+                    console.log(this);
+                }).bind(this),200);
+                // 使用bind（）将定时器的this指向li？？？？
+            }
+        }
+        // 在定时器中li指向全为window
+
+        var obj = {
+            name : 'zs',
+            age : 20,
+            say: function(){
+                console.log(this);
+            }
+        }
+        // this指向实例化对象
+        obj.say();
+
+
+
+        // var obj = {
+        //     name:'zs',
+        //     age:20,
+        //     say:function(msg,msg1,msg2){
+        //     console.log(this,msg,msg1,msg2);
+        //     }
+        // }
+
+        // var obj2 = {
+        //     name:'xiaowu'
+        // }
+
+        // obj.say("我是obj","哈哈","呵呵");
+        // obj.say.call(obj2,"我是xiaowu","哈哈","呵呵");
+        // obj.say.apply(obj2,["我是xiaowu","哈哈","呵呵"]);
+        // obj.say.bind(obj2,"我是xiaowu","哈哈","呵呵")();
+
+    </script>
+</body>
+</html>
