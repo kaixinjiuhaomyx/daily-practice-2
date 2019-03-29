@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Vue 只操作数据 -->
+    <!-- <div id="div1" v-text="msg"> -->
+    <div id="div1" v-html="msg">
+
+        <!-- {{msg}} -->
+    </div>
+
+    <!-- <div id="div2">
+
+        <div v-if="msg == 'a'">
+            msg is a!
+        </div>
+        <div v-else-if="msg == 'b'">
+            msg is b!
+        </div>
+        <div v-else>
+            msg is c!
+        </div>
+    </div>
+
+    <div id="div3">
+        <template v-if='msg'>
+            <h1>haha</h1>
+            <h2>study</h2>
+        </template>
+    </div>
+    <div id="div4" v-show='msg'>
+        v-show
+    </div> -->
+    <div id="div5" >
+        循环
+        <ul>
+            <li v-for = '(val,index) in arr'>{{index}}.{{val}}</li>
+        </ul>
+        <ul>
+            <li v-for = 'k in 3'>
+                {{msg}}{{k}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for = 'vue in todosLIst'>
+               {{' 商品：'+vue.name}}<br/>价格：{{vue.money}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for = '(v,a,i) in obj'>
+                <!-- (值，名，index) -->
+                {{v}}{{a}}{{i}}
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        // text or html
+        // v-text 减小代码运行时间
+        // 代替标签内容
+    //     var vm1 = new Vue({
+    //         el:'#div1',
+    //         data:{
+    //             msg:"<h1>hello world!!!</h1>"
+    //         }
+    //     })
+    // // v-if
+    //     var vm2 = new Vue({
+    //         el:"#div2",
+    //         data:{
+    //             msg:'a'
+    //         }
+    //     })
+
+    //     var vm3 = new Vue({
+    //         el:'#div3',
+    //         data:{
+    //             msg:'ture'
+    //         }
+    //     })
+    //     var vm4 = new Vue({
+    //         el:'div4',
+    //         data:{
+    //             msg:true
+    //         }
+    //     })
+        var vm5 = new Vue({
+            el:'#div5',
+            data:{
+                arr:['赵','钱','孙','李'],
+                msg:'休息',
+                todos:[{
+                    name:'麻辣烫',
+                    money:10
+                },{
+                    name:'盖饭',
+                    money:15
+                },{
+                    name:'打卤面',
+                    money:8
+                },{
+                    name:'粗粮细作',
+                    money:20
+                }],
+                obj:{
+                    a:'1',
+                    b:'2',
+                    c:'3'
+                }
+            },
+            computed:{
+                // todosLIst是个函数但还可以当属性用
+                todosLIst(){
+                    return this.todos.sort(function(a,b){
+                        return a.money-b.money;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

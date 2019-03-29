@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #af09f9;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: #0f0e;
+            
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <button @click="fun(2,$event)">add</button>
+            {{msg}}
+        <div id="div2" @click='click2()'>
+            <div id="div3" @click='click3()'>
+            </div>
+        </div>
+        <input type="text" @keyup='num' v-model='val'>
+        <!-- @keyup.enter -->
+    </div>
+
+ <!-- 
+    取事件e
+    1.绑事件时在函数里传$event
+    2.在methods中的event
+ -->
+ <!-- 
+     把string(数字的)变成num方法：
+     var val = 111；
+     （1）val * 1
+     （2）Number（val）
+  -->
+    <script src="vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+            el:'#div1',
+            data:{
+               msg:0,
+               val:''
+            },
+            methods:{
+                fun(a,e){
+                    this.msg = this.msg + a;
+                    console.log(e.target);
+                },
+                click2(){
+                    console.log('div2');
+                   
+                },
+                click3(){
+                    console.log('div3');
+                    // event.stopPropagation();
+                    event.cancelBubble = true;
+                },
+                num(){
+                    if(event.keyCode == 13){
+                        this.msg = this.msg + this.val*1;
+                    }
+                    // // .key键盘值
+                    // var val1 = event.key;
+                    // // .keyCode键盘码
+                    // var val2 = event.keyCode;
+
+                    // console.log(val1,val2);
+                    // // val = '';
+                }
+            }
+
+        }) 
+    
+    
+    
+    
+    </script>
+
+
+</body>
+</html>
