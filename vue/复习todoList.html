@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg{
+            background: #ff0036;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <input type="text" v-model='con' @keyup='filter()'>
+        <button @click='add'>添加</button>
+        <ul v-for='(val,index) in showtodos'>
+            <li :class="{bg:val.isBg}" @click='back(val)'>
+                {{val.name}}
+                <button @click='del(index)'>Delete</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#div1',
+            data:{
+                todos:[{
+                    name:'麻辣烫',
+                    isBg:false
+                }],
+                showtodos:[{
+                    name:'麻辣烫',
+                    isBg:false
+                }],
+                con:'',
+                isBg:false
+
+            },
+            methods:{
+                add(){
+                    // console.log(this.con);
+                    if(this.con != ''){
+                        this.todos.push({name:this.con,isBg:false});
+                        this.con = '';
+                        this.showtodos = [...this.todos];
+                    }
+                    
+                },
+                del(i){
+                    // console.log(i);
+                    this.todos.splice(i,1);
+                    this.showtodos = [...this.todos];
+
+                },
+                back(v){
+                    v.isBg =! v.isBg;
+                    console.log(this.isBg);
+                },
+                filter(){
+                    // console.log(this.todos.filter(this.con));
+                    var newList = this.todos.filter((obj,index) => {
+                        // 在函数中this指向window  所以使用箭头函数，this指向父作用域中的this(声明时的this)
+                        return obj.name.includes(this.con);
+                    });
+                    this.showtodos = [...newList];
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>
