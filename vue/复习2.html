@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        list-style-type :none;
+    }
+    .active{
+        background: #ff0036;
+    }
+    li{
+        width: 200px;
+        height: 30px;
+        background: #00ee00;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul v-for='(val,index) in list'>
+            <li :class="{active:val.isR}" @click="change(val,index)">
+                <div>
+                    <span>{{val.name}}</span> <span>{{val.price}}</span>
+                </div>
+            </li>
+        </ul>
+        <span>总价</span><span>{{all}}</span>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+            el:'#div1',
+            data:{
+                all:0,
+                list:[
+                    {
+                        name:'麻辣烫',
+                        price:10,
+                        isR:false
+                    },
+                    {
+                        name:'铁锅炖',
+                        price:40,
+                        isR:false
+                    },
+                    {
+                        name:'烤肉',
+                        price:60,
+                        isR:false
+                    },
+                    {
+                        name:'海底捞',
+                        price:120,
+                        isR:false
+                    },
+                    {
+                        name:'纸上鱼醉',
+                        price:50,
+                        isR:false
+                    },
+                    {
+                        name:'烤盘',
+                        price:30,
+                        isR:false
+                    },
+                    {
+                        name:'顾佳',
+                        price:70,
+                        isR:false
+                    }
+                ],
+
+            },
+            methods:{
+                change(val,index){
+                    val.isR =! val.isR;
+                    if(val.isR == true){
+                        this.all +=val.price;
+                    }else{
+                        this.all -=val.price;
+                    };
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>
