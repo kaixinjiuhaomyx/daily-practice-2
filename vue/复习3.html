@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* .dis{
+            display: none;
+        }
+     */
+    </style>
+</head>
+<body>
+    <div id="div1">
+        额外设施<input type="checkbox" v-model='isR'>
+        <ul v-for='val in list' v-show='isR'>
+            <li>
+                <input type="checkbox" @click='add(val)'>{{val.name}}({{val.price}})
+            </li>
+        </ul>
+        <div>订单费用信息</div>
+        <ul v-for='val in list2'>
+            <li>
+                {{val.name}}{{val.price}}
+            </li>
+        </ul>
+        <div>总金额：{{total()}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+            el:"#div1",
+            data:{
+                list:[
+                    {
+                        name:'沙发',
+                        price:100
+                    },
+                    {
+                        name:'冰箱',
+                        price:1030
+                    },
+                    {
+                        name:'电视',
+                        price:3100
+                    },
+                ],
+                isR:false,
+                list2:[
+                    {
+                        name:'地板',
+                        price:2000
+                    }
+                ]
+               
+            },
+            methods:{
+                total(){
+                    let count = 0;
+                    this.list2.forEach(function(obj){
+                        count += obj.price;
+                    })
+                    return count;
+                },
+                add(v){
+                    this.list2.push(v);
+                }
+            }
+            
+            
+        })
+    
+    
+    </script>
+</body>
+</html>
