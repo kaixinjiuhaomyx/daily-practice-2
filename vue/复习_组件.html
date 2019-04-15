@@ -5,8 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .big{
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            
+        }
+        .line{
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <!-- 组件弹出层 -->
     
+    <div id="app">
+            <button @click='fn()'>登陆</button>
+            <button @click='fn1()'>注册</button>
+        <zu name='登陆' v-show='ss' @xx='xx()'>
+            <span>用户名：</span>
+            <input type="text">
+            <br>
+            <span>密码：</span>
+            <input type="text">
+        </zu>
+        <br>
+        <zu name='注册' v-show='aa' @xx='xx()'>
+            <span>用户名：</span>
+            <input type="text">
+            <br>
+            <span>密码：</span>
+            <input type="text">
+            <br>
+            <span>确认密码：</span>
+            <input type="text">
+
+        </zu>
+
+    </div>
+    <template id="temp">
+        <div>
+            <div class="big">
+                <div class='titel'>
+                   <span>{{name}}</span> <span @click="$emit('xx')">[X]</span>
+                   <hr>
+                </div>
+                <slot></slot>
+                <br>
+                <button>{{name}}</button>    
+            </div>
+        </div>
+        
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+            el:'#app',
+            data:{
+               ss:false,
+               aa:false
+            },
+            components:{
+                'zu':{
+                    template:'#temp',
+                    props:["name"]
+                }
+            },
+            methods:{
+                fn(){
+                    // console.log(this);
+                    this.ss = true;
+                    this.aa = false;
+                },
+                fn1(){
+                    // console.log(this);
+                    this.aa = true;
+                    this.ss = false;
+                },
+                xx(){
+                    this.aa = false;
+                    this.ss = false;
+                }
+            }
+
+
+        })
+    
+    
+    </script>
 </body>
 </html>
