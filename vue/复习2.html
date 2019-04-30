@@ -17,18 +17,24 @@
         height: 30px;
         background: #00ee00;
     }
+    li span{
+        float: right;
+    }
     </style>
 </head>
 <body>
     <div id="div1">
         <ul v-for='(val,index) in list'>
             <li :class="{active:val.isR}" @click="change(val,index)">
+            <!-- <li :class="{active:val.isR}" @click="change(val.isR =! val.isR)"> -->
+            
                 <div>
-                    <span>{{val.name}}</span> <span>{{val.price}}</span>
+                  {{val.name}} <span>{{val.price}}</span>
                 </div>
             </li>
         </ul>
-        <span>总价</span><span>{{all}}</span>
+        <hr>
+        <span>总价</span><span>{{ll()}}</span>
     </div>
 
 
@@ -79,12 +85,26 @@
             },
             methods:{
                 change(val,index){
+                    
                     val.isR =! val.isR;
-                    if(val.isR == true){
-                        this.all +=val.price;
-                    }else{
-                        this.all -=val.price;
-                    };
+
+                    // this.list[index].isR =! this.list[index].isR;
+                    
+                    // console.log(val);
+                    // if(val.isR){
+                    //     this.all += val.price;
+                    // }else{
+                    //     this.all -= val.price;
+                    // };
+                },
+                ll(){
+                    sum = 0;
+                    this.list.forEach(function(elem){
+                        if(elem.isR){
+                        sum += elem.price;
+                        }
+                    });
+                    return sum;
                 }
             }
         })
