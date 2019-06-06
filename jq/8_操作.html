@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <!-- 操作  
+        clone append appendTo prepend prependTo html text
+        .after()  .before()  .insertAfter()  .insertBefore()
+        .remove()  .replaceAll()  .replaceWith()
+    -->
+    <!-- 
+         A.append(B) 把B加到A中  
+         A.appendTo(B) 把A加到B中
+         append加到文本后边  prepend加到文本前边
+         html中识别标签 text中不识别
+         链式法则
+    -->
+    <!-- 外部插入
+         
+     -->
+
+    <span class="div1">aaa</span>
+    <div id="div2">hello</div>
+
+   
+    
+    <script>
+        // $('#div2').append($('#div1').clone());
+        // var $div1 = $('#div1').clone();
+        // 链式法则
+        // $div1.appendTo('#div2').css('background','red');
+        $('<div>askdfladjflka</div>').replaceAll('.div1');
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            display: block;
+            background:#ccc;
+        };
+        #conter{
+            position: relative;
+        }
+        #div1{
+            position: absolute;
+            /* top: 180px;
+            left:0px; */
+        }
+        #div2{
+            position: absolute;
+            top:0px;
+            left:200px;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="conter">
+        <div id="div1"> 
+            <select name="" id="select1" multiple="multiple" style="width: 100px;height: 180px;">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+            </select>
+            <span id="right">选中添加到右边&gt;&gt;</span>
+            <span id="rightAll">全部添加到右边&gt;&gt;</span>
+        </div>
+        <div id ="div2">
+            <select name="" id="select2" multiple="multiple" style="width: 100px;height: 180px;">
+                <option value="">9</option>
+            </select>
+            <span id="left">选中添加到左边&gt;&gt;</span>
+            <span id="leftAll">选中添加到左边&gt;&gt;</span>
+        </div>
+    </div>
+   
+
+    <script>
+        $('#right').on('click',function(){
+            $('#div1 option:selected').appendTo($('#select2')); 
+            $('#div2 option').prop('selected',false);        
+        });
+        $('#rightAll').on('click',function(){
+            $('#div1 option').appendTo($('#select2'));  
+            $('#div2 option').prop('selected',false);        
+        });
+    
+        $('#left').on('click',function(){
+            $('#div2 option:selected').appendTo($('#select1'));  
+            $('#div1 option').prop('selected',false);        
+        });
+        $('#leftAll').on('click',function(){
+            $('#div2 option').appendTo($('#select1'));  
+            $('#div1 option').prop('selected',false);        
+        });
+    </script>
+</body>
+</html>
