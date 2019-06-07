@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <ul id="ul">
+    <!-- 以下为初学 -->
+    <!-- <ul id="ul">
         <li id="li1">1</li>
         <li id="li2">2</li>
         <li class="li3">3</li>
@@ -22,7 +23,53 @@
         <div>div3</div>
         <span>span1</span>
         <span>span2</span>
+    </div> -->
+
+
+
+    <!-- 复习 -->
+
+    <ul>
+        <li>li1</li>
+        <li class="li2">li2</li>
+        <li>li3</li>
+        <li id="li4">li4</li>
+    </ul>
+    <div id="div1">
+
+        <p>我是p标签</p>
+        <span>I am span1!!!!</span>
+        <div>
+            <span>I am span2!!!!</span>
+        </div>
     </div>
+    
+    <ul id="ff">
+        <li id="abc">1</li>
+        <li class="aa">2</li>
+        <li class="aa-b">3</li>
+        <li class="ac-a">4</li>
+        <li class="aa bb">5</li>
+        <li class="aab bb">6</li>
+        <li class="baa">7</li>
+        <li class="baa">8</li>
+    </ul>
+
+    <ul id="far">
+        <li>11
+            <div>11大孙子</div>
+            <span>11孙子</span>
+        </li>
+        <li>22
+            <div>22孙子</div>   
+        </li>
+        <li></li>
+        <li>44</li>
+        <li>55</li>
+        <li>66</li>
+    </ul>
+
+    
     <script src="jquery-1.12.4.js"></script>
     <script>
     
@@ -40,13 +87,74 @@
         // $('li[class]').css('background','green');
         // $('li[id=li2]').css('background','green');
 
-        $('ul li :first-child').css('background','green');
+        // $('ul li :first-child').css('background','green');
 
 
 
 
 
-    
+
+        // 复习加整理*******************************************
+
+        // 相应与css2中的选择器
+        // $('*').css("background","red");//通配符  对整个页面作用
+        // $('li').css("background","red");
+        // $('#li4').css("background","green");
+        // $('.li2').css("background","blue");
+        // $('p,span,li.li2').css("background","red");//$中的选择器要在一个引号下
+        // ？？？？？？？？？？？？？？？？？？？？？？？？//让ul中带有class属性的li变色怎么办
+        //$('li[class]').css("background","red");
+
+        // 相应与css3中的选择器  层级
+        // $('#div1 > span').css("background","green");
+        // $('#div1 span').css("background","green");
+        // $('.li2+li').css('color','blue');
+        // $('.li2~li').css('color','blue');
+        
+
+        // 属性的选择器 
+        // $('li[class|=aa]').css('background','green');//带有或前缀
+        // $('li[class*=c]').css('background','green');//字符串内包含
+        // $('li[class~=aa]').css('background','green');//空格分开时 包含
+        // $('li[class^=aa]').css('background','green');//开头
+        // $('li[class$=aa]').css('background','green');//结尾
+        // $('li[class!=aa]').css('background','green');//取非
+        
+        //子代选择器
+        // $('ul[id=far] li :first').css('background','green');//ul后边有空格就取ul的孩子  没空格就取ul
+        // $('ul[id=far] :last').css('background','green');
+        // $('ul[id=far] :nth(0)').css('background','green');//第几个标签
+        // $('ul[id=far] :nth(1)').css('background','red');
+        // $('ul[id=far] :nth(2)').css('background','blue');
+        // $('ul[id=far] :nth(3)').css('background','orange');
+        // $('ul[id=far] :nth(4)').css('background','yellow');
+        // $('ul[id=far] :nth(5)').css('background','brown');
+        // $('ul[id=far] :nth-child(3)').css('background','green');
+        // $('ul[id=far] li:first-of-type').css('background','green');
+
+        // 基本筛选
+        // eq() even odd first last gt()大于 lt()小于 not()
+        // $('ul[id=far] li:eq(2)').css('background','green');//选中索引
+        // $('ul[id=far] li:even').css('background','green');//选中单数
+        // $('ul[id=far] li:odd').css('background','green');//选中单数
+        // $('ul[id=far] li:first').css('background','green');//选中第一个
+        // $('ul[id=far] li:gt(3)').css('background','green');
+        // $('ul[id=ff] li:not([class=aa])').css('background','green');
+        // $('ul[id=ff] li:not(.aa)').css('background','green');//()中为选择器
+
+        // 内容筛选
+        // $('ul[id=far] li:contains(3)').css('background','green');
+        // $('ul[id=far] li:has(span)').css('background','green');//（）中加标签
+        // $('ul[id=far] li:empty').css('background','green');
+        // $('ul[id=far] li:parent').css('background','green');
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>

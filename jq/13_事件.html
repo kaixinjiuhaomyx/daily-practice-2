@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+        #div1{
+            width: 250px;
+            height: 250px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 120px;
+            height: 120px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        on()  off()  one()  
+        tigger() 触发事件
+        tiggerHandler() 只触发处理函数
+     -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <input type="text" id="text">
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+    <select name="" id="hobby">
+        <option value="游泳">游泳</option>
+        <option value="跑步">跑步</option>
+        <option value="睡觉">睡觉</option>
+
+    </select>
+    <script>
+        // 事件委托******************************************
+        // 后生成的元素绑事件绑不上 把事件绑在父元素上
+
+        $('ul').on('click','li',function(){
+            // $('ul').append('<li>'+$('this').index()+'</li>');
+            $('ul').append('<li>'+Math.random()+'</li>');
+        });
+        // ***************************************************
+    
+        // ******************************
+        $('#text').on('focus',function(){
+            $(this).css('background','green');
+        })
+        // $('#text').trigger('focus');
+        $('#text').triggerHandler('focus');
+    // ****************************************
+
+    // hover***************************************
+        $('li').eq(2).hover(function(){
+            $(this).css('background','red');
+        },function(){
+            $(this).css('background','green');
+        })
+    // *************************************************
+    
+    // **************************************
+    // mouseover mouseout支持事件冒泡 
+    // mouseenter mouseleave 不支持事件冒泡
+    // $('#div1').on('mouseenter',function(){
+    //     console.log('div1 mouseenter');
+    // });
+    // $('#div2').on('mouseenter',function(){
+    //     console.log('div2 mouseenter');
+    // });
+
+    
+    
+    $('#div1').on('mouseover',function(){
+        console.log('div1 mouseenter');
+    });
+    $('#div2').on('mouseover',function(){
+        console.log('div2 mouseenter');
+    });
+    // ****************************************
+
+
+    // **************************************
+    // change()
+    $('#hobby').on('change',function(){
+        console.log($(this).val());
+    })
+    // *****************************************
+    </script>
+</body>
+</html>
