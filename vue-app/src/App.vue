@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-      <Header></Header>
+      <Header :style="{background:bg}"></Header>
 
       <div id="content">
         <router-view></router-view>
       </div>
      
-      <Footer :menu='menu'></Footer>
+      <Footer :menu='menu' @HeaderBg="HeaderBg"></Footer>
   </div>
 </template>
   <script>
@@ -18,23 +18,36 @@
       return{  
         menu:[{
           path:"/movie",
-          name:'电影'
+          name:'电影',
+          bg:'#f56780',
         },{
           path:"/music",
-          name:'音乐'
+          name:'音乐',
+          bg:'#00f878'
         },{
           path:"/book",
-          name:'图书'
+          name:'图书',
+          bg:'#8909ff'
         },{
           path:"/photo",
-          name:'图片'
-        }]
+          name:'图片',
+          bg:'#d07806'
+        }],
+        bg:''
       }
     },
     components:{
       // 声明组件
       Header,
       Footer
+    },
+    methods:{
+      HeaderBg(bg){
+        // console.log(bg);
+        this.bg = bg;
+        // console.log(this);
+      }
+
     }
   };
   </script>
