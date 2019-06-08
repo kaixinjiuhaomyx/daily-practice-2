@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .active{
+        background: #60e645;
+        border:brown 1px solid;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <!-- this.defaultValue value的默认值 -->
+    名称:<input type="text" value="请输入名称" id="Nam"><br>
+    密码:<input type="text">
+    <script>
+        
+    $('#Nam').on('focus',function(){
+        // if($(this).val() == '请输入名称'){
+        //     $(this).val(''); 
+        // };
+        if(this.value == this.defaultValue){
+            $(this).val(''); 
+        };
+        $(this).attr('class','active');
+    })
+
+    $('#Nam').on('blur',function(){
+        $(this).removeAttr('class','active');
+        if($(this).val() == ''){
+            $(this).val('请输入名称'); 
+        };
+        
+    })
+    
+    </script>
+</body>
+</html>

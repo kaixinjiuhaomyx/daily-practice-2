@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <!-- 用js语法千万别忘了引入js文件**************************** -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .btn-Box li{
+            background: #ccc;
+            width: 60px;
+            height: 40px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #contain div{
+            width: 200px;
+            height: 150px;
+            background: skyblue;
+            display: none;
+        }
+        #contain div.active{
+            display: block;
+        }
+        #contener .select{
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="contener">
+        <div class="a">
+             <ul class="btn-Box">
+                <li class="select">标题1
+                </li><li>标题2
+                </li><li>标题3
+                </li>
+            </ul>
+        </div>
+        <div id="contain">
+            <div class="active">内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+<script>
+    $('li').on('click',function(){
+        $(this).addClass('select').siblings().removeClass('select');
+        $('#contain div').eq($(this).index()).addClass('active').siblings().removeClass('active');
+   });
+</script>
+</body>
+</html>

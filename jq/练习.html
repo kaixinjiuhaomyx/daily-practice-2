@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div>
+        <button id="big">放大</button>
+        <button id="small">缩小</button>
+        <br>
+        <textarea name="" id="tex1" cols="40" rows="10">多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，</textarea>
+    </div>
+<script>
+    $('#big').on('click',function(){
+        // console.log($('#tex1').height);
+        var a = $('#tex1').height();
+        if(a < 500){
+            $('#tex1').height(a + 50);
+        }
+    });
+    $('#small').on('click',function(){
+        // console.log($('#tex1').height);
+        var b = $('#tex1').height();
+        if(b >100){
+            $('#tex1').height(b - 50);
+        }
+    });
+
+
+
+</script>
+</body>
+</html>

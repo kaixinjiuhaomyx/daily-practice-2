@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <button @click='msg++'>add</button>
+        <button @click='del()'>del</button>
+
+        {{msg}}
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+            el:'#div1',
+            data:{
+                msg:'0'
+            }, 
+            methods:{
+                del(){
+                     vm1.$destroy();
+                }
+            },
+            // 组件实例刚被创建，组件属性计算之前，属性未被初始化
+            beforeCreate () {
+                console.log("beforeCreate",this.$data,this.$el);
+            },
+            // 属性已绑定，但dom还未生成  $el属性还不存在
+            created () {
+                console.log("created",this.$data,this.$el);
+            },
+            // 模板编译/挂载前，属性初始化完成 el存在了{{}}中的为挂载
+            beforeMount () {
+                console.log("beforeMount",this.$data,this.$el);
+            },
+            // 挂载完成{{}}中以挂载
+            mounted() {
+                console.log("mounted",this.$el);
+            },
+            // 更新前
+            beforeUpdate () {
+                // console.log(this.$el);
+                console.log('beforeUpdate');
+            },
+            // 更新
+            updated () {
+                console.log('updated');
+                // console.log(this.$el);
+            },
+            // 
+            beforeDestroy() {
+                console.log('beforeDestroy');
+            },
+            destroyed() {
+                console.log('destroyed');
+            }
+
+        })
+    
+    </script>
+</body>
+</html>
