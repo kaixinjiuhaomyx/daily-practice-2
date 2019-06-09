@@ -1,18 +1,22 @@
 <template>
-    <header>
+    <header :style="{background:bg}">
        <span id="Home">首页</span>
        电影
     </header>
 </template>
 <script>
 export default {
-    
+    data(){
+        return{
+            bg:'#f56780'
+        }
+    }
 }
 </script>
 <style scoped>
     header{ 
         height:1rem;
-        background:blue;
+        background:#f56780;
         text-align: center;
         line-height: 1rem;
         font-size: 0.4rem;

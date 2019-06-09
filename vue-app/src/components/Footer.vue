@@ -1,15 +1,26 @@
 <template>
-    <footer>
+    <footer :style="{background:bg}">
         <ul>
             <li v-for='(obj,index) in menu' :key=index>
-                <router-link :to="obj.path">{{obj.name}}</router-link>
+                <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
             </li>
         </ul>
     </footer>
 </template>
 <script>
 export default {
-    props:["menu"]
+    data(){
+        return{
+            bg:''
+        }
+    },
+    props:["menu"],
+    methods:{
+        change(obj){
+            this.bg = obj.bg;
+            this.$emit('HeaderBg',this.bg);
+        }
+    }
     
 }
 </script>
@@ -18,7 +29,7 @@ export default {
         position: fixed;
         bottom: 0rem;
         left:0rem;
-        background: blue;
+        background: #f56780;
         height: 1rem;
         width: 100%;
         color: #ccc;
