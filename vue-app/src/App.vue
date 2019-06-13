@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-      <!-- <Header :style="{background:obj.bg}" :obj='obj'></Header> -->
-      <Header></Header>
+      <Header :style="{background:obj.bg}" :obj='obj'></Header>
+      <!-- <Header></Header> -->
 
       <div id="content">
         <router-view></router-view>
        
       </div>
-      <Footer :menu='menu' :Footerbg='obj.bg'></Footer>
-      <!-- <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> -->
+      <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer>
   </div>
 </template>
   <script>
@@ -47,21 +46,21 @@
       Header,
       Footer
     },
-    // methods:{
-    //   HeaderBg(obj){
-    //     this.obj = obj;
-    //   }
-    // },
-    // created(){
-    //   // 原生语法bom
-    //   // console.log(location.pathname);
-    //   // route语法
-    //   console.log(this.$route.path);
-    //   let initial = this.menu.filter((obj,index) =>{
-    //     return obj.path == this.$route.path;
-    //   })
-    //   this.obj = initial[0];
-    // }
+    methods:{
+      HeaderBg(obj){
+        this.obj = obj;
+      }
+    },
+    created(){
+      // 原生语法bom
+      // console.log(location.pathname);
+      // route语法
+      console.log(this.$route.path);
+      let initial = this.menu.filter((obj,index) =>{
+        return obj.path == this.$route.path;
+      })
+      this.obj = initial[0];
+    }
   };
   </script>
   
