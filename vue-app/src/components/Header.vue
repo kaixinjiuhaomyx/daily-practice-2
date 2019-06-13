@@ -1,7 +1,9 @@
 <template>
     <header :style="{background:bg}">
+        
        <span id="Home">首页</span>
-       {{obj.name}}
+       <!-- {{obj.name}} -->
+       电影
     </header>
 </template>
 <script>
@@ -11,7 +13,7 @@ export default {
             bg:'#f56780'
         }
     },
-    props:["obj"]
+    // props:["obj"]
 }
 </script>
 <style scoped>
