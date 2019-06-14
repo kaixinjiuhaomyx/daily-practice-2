@@ -1,20 +1,21 @@
 <template>
-    <header :style="{background:bg}">
-        
-       <span id="Home">首页</span>
-       {{obj.name}}
+    <!-- <header :style="{background:bg}"> -->
+    <header>
+        aaaaa
+       <!-- <span id="Home">首页</span> 
+       {{obj.name}} -->
        
     </header>
 </template>
 <script>
-export default {
-    data(){
-        return{
-            bg:'#f56780'
-        }
-    },
-    props:["obj"]
-}
+// export default {
+//     data(){
+//         return{
+//             bg:'#f56780'
+//         }
+//     },
+//     props:["obj"]
+// }
 </script>
 <style scoped>
     header{ 
