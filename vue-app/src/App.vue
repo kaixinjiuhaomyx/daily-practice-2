@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-      <Header :style="{background:bg}"></Header>
-
+      <!-- <Header :style="{background:obj.bg}" :obj='obj'></Header> -->
+      <Header></Header>
       <div id="content">
         <router-view></router-view>
       </div>
-     
-      <Footer :menu='menu' @HeaderBg="HeaderBg"></Footer>
+       <Footer :menu='menu'></Footer> 
+      <!-- <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> -->
+      <!-- <Footer :menu='menu' :Footerbg='obj.bg'></Footer> -->
   </div>
 </template>
   <script>
@@ -33,7 +34,11 @@
           name:'图片',
           bg:'#d07806'
         }],
-        bg:''
+        obj:{
+          path:"/movie",
+          name:'电影',
+          bg:'#f56780',
+        }
       }
     },
     components:{
@@ -41,14 +46,21 @@
       Header,
       Footer
     },
-    methods:{
-      HeaderBg(bg){
-        // console.log(bg);
-        this.bg = bg;
-        // console.log(this);
-      }
-
-    }
+    // methods:{
+    //   HeaderBg(obj){
+    //     this.obj = obj;
+    //   }
+    // },
+    // created(){
+    //   // 原生语法bom
+    //   // console.log(location.pathname);
+    //   // route语法
+    //   console.log(this.$route.path);
+    //   let initial = this.menu.filter((obj,index) =>{
+    //     return obj.path == this.$route.path;
+    //   })
+    //   this.obj = initial[0];
+    // }
   };
   </script>
   

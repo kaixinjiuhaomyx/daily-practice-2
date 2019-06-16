@@ -1,16 +1,21 @@
 <template>
-    <header :style="{background:bg}">
-       <span id="Home">首页</span>
+    <!-- <header :style="{background:bg}"> -->
+    <header>
+       
+       <span id="Home">首页</span> 
        电影
+       <!-- {{obj.name}} -->
+       
     </header>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            bg:'#f56780'
-        }
-    }
+    // data(){
+    //     return{
+    //         bg:'#f56780'
+    //     }
+    // },
+    // props:["obj"]
 }
 </script>
 <style scoped>
