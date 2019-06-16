@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-      <Header :style="{background:obj.bg}" :obj='obj'></Header>
-      <!-- <Header></Header> -->
+      <!-- <Header :style="{background:obj.bg}" :obj='obj'></Header> -->
+      <Header></Header>
       <div id="content">
         <router-view></router-view>
       </div>
-      <!-- <Footer></Footer> -->
-      <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer>
-      <!-- <Footer :menu='menu' :Footerbg='obj.bg'></Footer> -->
+       <!-- <Footer></Footer>  -->
+      <!-- <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> -->
+      <Footer :menu='menu' :Footerbg='obj.bg'></Footer>
   </div>
 </template>
   <script>

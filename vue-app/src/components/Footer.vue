@@ -1,6 +1,6 @@
 <template>
-    <footer :style="{background:Footerbg}">
-    <!-- <footer> -->
+    <!-- <footer :style="{background:Footerbg}"> -->
+    <footer>
         
         <ul>
             <li v-for='(obj,index) in menu' :key=index>
@@ -17,18 +17,18 @@ export default {
         }
     },
     props:["menu","Footerbg"],
-    methods:{
-        change(obj){
-            // this.bg = obj.bg;
-            this.$emit('HeaderBg',obj);
-            // console.log(HeaderBg);
-            // 注意变量代表的是啥呀  别没事就加this呀
-        }
-    },
-    // created(){
-    //     this.bg = obj1.bg;
-    //     // console.log(obj);
-    // }
+    // methods:{
+    //     change(obj){
+    //         // this.bg = obj.bg;
+    //         this.$emit('HeaderBg',obj);
+    //         // console.log(HeaderBg);
+    //         // 注意变量代表的是啥呀  别没事就加this呀
+    //     }
+    // },
+    // // created(){
+    // //     this.bg = obj1.bg;
+    // //     // console.log(obj);
+    // // }
     
 }
 </script>

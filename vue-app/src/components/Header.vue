@@ -1,9 +1,9 @@
 <template>
-    <header :style="{background:bg}">
-    <!-- <header> -->
-        
+    <!-- <header :style="{background:bg}"> -->
+    <header>
+       
        <span id="Home">首页</span> 
-       {{obj.name}}
+       <!-- {{obj.name}} -->
        
     </header>
 </template>
