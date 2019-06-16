@@ -4,6 +4,7 @@
       <Header></Header>
       <div id="content">
         <router-view></router-view>
+        
       </div>
        <Footer :menu='menu'></Footer> 
       <!-- <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> -->
