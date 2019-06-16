@@ -1,6 +1,5 @@
 <template>
     <header :style="{background:obj.bg}">
-    <!-- <header> -->
        
        <span id="Home">首页</span> 
        

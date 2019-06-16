@@ -1,15 +1,9 @@
 <template>
     <footer :style="{background:Footerbg}">
-    <!-- <footer> -->
         <ul>
             <li v-for='(obj,index) in menu' :key=index>
                 <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
             </li>
-            <!-- <li v-for='(obj,index) in menu' :key=index>
-                <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
-            </li> -->
-           
-           
         </ul>
     </footer>
 </template>
@@ -21,7 +15,6 @@ export default {
         }
     },
     props:["menu","Footerbg"],
-    // props:["menu"],
     methods:{
         change(obj){
             this.bg = obj.bg;

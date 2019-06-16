@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-      <!-- <Header :style="{background:obj.bg}" :obj='obj'></Header> -->
       <Header :style="{background:obj.bg}" :obj='obj'></Header>
       <div id="content">
         <router-view></router-view>
 
       </div>
        <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> 
-      <!-- <Footer :menu='menu' @HeaderBg="HeaderBg" :Footerbg='obj.bg'></Footer> -->
-      <!-- <Footer :menu='menu' :Footerbg='obj.bg'></Footer> -->
   </div>
 </template>
   <script>
