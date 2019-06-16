@@ -3,18 +3,19 @@
     <header>
        
        <span id="Home">首页</span> 
+       电影
        <!-- {{obj.name}} -->
        
     </header>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            bg:'#f56780'
-        }
-    },
-    props:["obj"]
+    // data(){
+    //     return{
+    //         bg:'#f56780'
+    //     }
+    // },
+    // props:["obj"]
 }
 </script>
 <style scoped>

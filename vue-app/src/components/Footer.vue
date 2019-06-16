@@ -1,22 +1,38 @@
 <template>
     <!-- <footer :style="{background:Footerbg}"> -->
     <footer>
-        
         <ul>
             <li v-for='(obj,index) in menu' :key=index>
-                <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
+                <router-link :to="obj.path" >{{obj.name}}</router-link>
             </li>
+            <!-- <li v-for='(obj,index) in menu' :key=index>
+                <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
+            </li> -->
+            <!-- <li>
+                <router-link to='/movie'>电影</router-link>
+            </li>
+             <li>
+                <router-link to='/music'>音乐</router-link>
+            </li>
+             <li>
+                <router-link to='/book'>图书</router-link>
+            </li>
+             <li>
+                <router-link to='/photo'>图片</router-link>
+            </li> -->
+           
         </ul>
     </footer>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            bg:""
-        }
-    },
-    props:["menu","Footerbg"],
+    // data(){
+    //     return{
+    //         bg:""
+    //     }
+    // },
+    // props:["menu","Footerbg"],
+    props:["menu"],
     // methods:{
     //     change(obj){
     //         // this.bg = obj.bg;
