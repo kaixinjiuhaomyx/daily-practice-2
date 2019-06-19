@@ -10,7 +10,7 @@
                     </p>
                     <p>已有{{obj.id}}人观看</p>
                     <p>{{obj.year}}</p>
-                    <p>
+                    <p> 
                         <span v-for='(type,index) in obj.genres' :key=index>{{type}} /</span>
                     </p>
                     <p>{{obj.rating.average}}</p>
@@ -33,16 +33,44 @@ export default {
         // 为了安全，有一个同源策略，域名、端口、协议都相同
         // 解决：用一个第三方的接口（服务器代理）
         // Axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/top250')
-        Axios.get('/movie.json')
-        .then((response)=>{
-            // console.log(response);
-           this.movieList = response.data.subjects;
-            console.log(this.movieList);
-            // console.log(response.data.subjects);
-        })
-        .catch((error)=> {
-            console.log(error);
-        });
+        // getMovie();
+        Axios.get('/movie0.json')
+            .then((response)=>{
+                // console.log(response);
+            this.movieList = response.data.subjects;
+                // console.log(this.movieList);
+                // console.log(response.data.subjects);
+            })
+            .catch((error)=> {
+                console.log(error);
+            })
+
+        window.onscroll = function(){
+            
+            if(document.documentElement.scrollTop +document.documentElement.clientHeight ==  document.documentElement.scrollHeight){
+                Axios.get('/movie10.json')
+                .then((response)=>{
+                    this.movieList = response.data.subjects;
+                })
+                .catch((error)=> {
+
+                })
+            }
+        }
+    },
+    methods:{
+        // getMovie(){
+        //    Axios.get('/movie0.json')
+        //     .then((response)=>{
+        //         // console.log(response);
+        //     this.movieList = response.data.subjects;
+        //         // console.log(this.movieList);
+        //         // console.log(response.data.subjects);
+        //     })
+        //     .catch((error)=> {
+        //         console.log(error);
+        //     }) 
+        // }
     }
 }
 </script>
