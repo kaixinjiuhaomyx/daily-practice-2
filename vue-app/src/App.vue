@@ -53,7 +53,7 @@
       // 原生语法bom
       // console.log(location.pathname);
       // route语法
-      console.log(this.$route.path);
+      // console.log(this.$route.path);
       let initial = this.menu.filter((obj,index) =>{
         return obj.path == this.$route.path;
       })
