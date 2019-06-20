@@ -22,7 +22,7 @@
         },{
           path:"/music",
           name:'音乐',
-          bg:'#00f878'
+          bg:'#80f0f6'
         },{
           path:"/book",
           name:'图书',

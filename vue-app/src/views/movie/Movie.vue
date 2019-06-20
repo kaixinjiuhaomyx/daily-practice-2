@@ -6,17 +6,19 @@
                 <div class="conter">
                     <h3>{{obj.title}}</h3>
                     <p >
-                        <span v-for='(arc,index) in obj.casts' :key='index'>{{arc.name}} /</span>
+                        <span v-for='(arc,index) in obj.casts' :key='index'>{{arc.name}} |</span>
                     </p>
                     <p>已有{{obj.id}}人观看</p>
                     <p>{{obj.year}}</p>
                     <p> 
-                        <span v-for='(type,index) in obj.genres' :key=index>{{type}} /</span>
+                        <span v-for='(type,index) in obj.genres' :key=index>{{type}} |</span>
                     </p>
                     <p>{{obj.rating.average}}</p>
                 </div>
             </li>
         </ul>
+        <img v-show="isShow" class="load" src="@/assets/imgs/loading.gif" alt="缓存">
+        <div v-show ="isBot" class="bot">到底了</div>
     </div>
 </template>
 <script>
@@ -25,7 +27,9 @@ import Axios from 'axios';
 export default {
     data(){
         return{
-            movieList:[]
+            movieList:[],
+            isShow:false,
+            isBot:false
         }
     },
     created(){
@@ -33,44 +37,50 @@ export default {
         // 为了安全，有一个同源策略，域名、端口、协议都相同
         // 解决：用一个第三方的接口（服务器代理）
         // Axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/top250')
-        // getMovie();
-        Axios.get('/movie0.json')
-            .then((response)=>{
-                // console.log(response);
-            this.movieList = response.data.subjects;
-                // console.log(this.movieList);
-                // console.log(response.data.subjects);
-            })
-            .catch((error)=> {
-                console.log(error);
-            })
+        this.getMovie();
 
-        window.onscroll = function(){
+        window.onscroll = ()=>{
+            // console.log(document.documentElement.scrollTop);
+            // 滚动条滚动的高度
+            // console.log(document.documentElement.clientHeight);
+            // 可视区高度
+            // console.log(document.documentElement.scrollHeight);
+            // 整个滚动区高度
+            var st = document.documentElement.scrollTop;
+            var ch = document.documentElement.clientHeight;
+            var sh = document.documentElement.scrollHeight;
+
+            if(st + ch == sh){
+                    this.isShow = true
+                
+                setTimeout(()=>{
+                    this.getMovie();
+                    // this.isShow = true
+                },3000)
+                
             
-            if(document.documentElement.scrollTop +document.documentElement.clientHeight ==  document.documentElement.scrollHeight){
-                Axios.get('/movie10.json')
-                .then((response)=>{
-                    this.movieList = response.data.subjects;
-                })
-                .catch((error)=> {
-
-                })
-            }
+            if(this.movieList.legth == 20){
+                this.isBot = true;
+            }}
         }
     },
     methods:{
-        // getMovie(){
-        //    Axios.get('/movie0.json')
-        //     .then((response)=>{
-        //         // console.log(response);
-        //     this.movieList = response.data.subjects;
-        //         // console.log(this.movieList);
-        //         // console.log(response.data.subjects);
-        //     })
-        //     .catch((error)=> {
-        //         console.log(error);
-        //     }) 
-        // }
+        getMovie(){
+            
+           Axios.get('/movie'+this.movieList.length+".json")
+            .then((response)=>{
+                // console.log(response);
+            this.movieList = [...this.movieList,...response.data.subjects];
+                // console.log(this.movieList);
+                // console.log(response.data.subjects);
+                    // this.isShow = true
+                
+                
+            })
+            .catch((error)=> {
+                // console.log(error);
+            }) 
+        }
     }
 }
 </script>
@@ -87,5 +97,14 @@ export default {
     }
     .conter{
         flex-grow:1;
+    }
+    .load{
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%)
+    }
+    .bot{
+        height: 1rem;
     }
 </style>
