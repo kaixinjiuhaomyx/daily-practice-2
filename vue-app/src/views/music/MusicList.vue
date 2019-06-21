@@ -1,17 +1,17 @@
 <template>
     <div>
         
-        <aplayer autoplay
+        <!-- <aplayer autoplay
         :music="{
             title: 'aaa',
             artist: 'Silent Siren',
             src: 'http://sc1.111ttt.cn:8282/2018/1/03m/13/396131229550.m4a?tflag=1519095601&pin=6cd414115fdb9a950d827487b16b5f97#.mp3',
             pic: ''
-        }"
-        />
-        <!-- <div>
-        <aplayer :music="list[0]" :list="list" v-if='isShow'>
-    </div> -->
+        }" -->
+       
+        <div>
+            <aplayer :music="list[0]" :list="list" v-if="isShow" showLrc/>
+        </div>
     </div>
 </template>
 
@@ -25,31 +25,31 @@ import Axios from 'axios';
                 isShow:false
             }
         },
-        //  computed:{
-        //     music(){
-        //         return this.list[0];
-        //     }
-        // },
+         computed:{
+            music(){
+                return this.list[0];
+            }
+        },
         components:{
             Aplayer
         },
         created(){
             Axios.get('data/musicdata.json')
             .then((result)=>{
-             console.log(result);
+            //  console.log(result);
              result.data.musicData.forEach(obj => {
                     let obj1 = {
                         title:obj.title,
                         artist:obj.author,
                         src:obj.src,
                         pic:obj.musicImgSrc,
-                        lrc:`http://localhost:8080/${obj.lrc}`
+                        lrc:`http://localhost:8080/${obj.lrc}`,
                     }
                     // http://localhost:8080/lrc/我要你.lrc
                     this.list.push(obj1);
-                    // 
+                    this.isShow = true;
                 });   
-                // this.isShow = true;
+                
             })
             
         }
