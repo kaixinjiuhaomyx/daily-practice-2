@@ -29,8 +29,8 @@ export default new Router({
       path:'/',
       redirect:'/movie',
     },{
-      path:'/musicList',
-      component:MusicList
+      path:'/musiclist',
+      component: MusicList
     }
     
   ],

@@ -51,29 +51,31 @@ export default {
             var sh = document.documentElement.scrollHeight;
 
             if(st + ch == sh){
-                    this.isShow = true
-                
+                this.isShow = true
+             
                 setTimeout(()=>{
                     this.getMovie();
-                    // this.isShow = true
+                    this.isShow = false
                 },3000)
                 
-            
-            if(this.movieList.legth == 20){
+                
+            if(this.movieList.length == 20){
                 this.isBot = true;
             }}
         }
     },
     methods:{
         getMovie(){
-            
+            //  this.isShow = true
+             
            Axios.get('/movie'+this.movieList.length+".json")
             .then((response)=>{
                 // console.log(response);
             this.movieList = [...this.movieList,...response.data.subjects];
                 // console.log(this.movieList);
                 // console.log(response.data.subjects);
-                    // this.isShow = true
+                // this.isShow = false
+                   
                 
                 
             })
@@ -105,6 +107,6 @@ export default {
         transform: translate(-50%,-50%)
     }
     .bot{
-        height: 1rem;
+        /* height: 1rem; */
     }
 </style>
