@@ -22,15 +22,17 @@
     export default {
         data(){
             return{
-                booklist:[
-                    "https://img3.doubanio.com/lpic/s24468373.jpg",
-                    "https://img3.doubanio.com/lpic/s27102925.jpg",
-                    "https://img3.doubanio.com/lpic/s6989253.jpg",
-                    "https://img3.doubanio.com/lpic/s6985053.jpg"
-                ],
-                isNow:0
+                // booklist:[
+                //     "https://img3.doubanio.com/lpic/s24468373.jpg",
+                //     "https://img3.doubanio.com/lpic/s27102925.jpg",
+                //     "https://img3.doubanio.com/lpic/s6989253.jpg",
+                //     "https://img3.doubanio.com/lpic/s6985053.jpg"
+                // ],
+                isNow:0,
+                // bookList:bookList
             }
         },
+        props:["booklist"],
         created(){
             setInterval(()=>{
                 this.isNow++
@@ -46,14 +48,12 @@
     .su img{
         width: 6.4rem;
         height: 8rem;
-        overflow: hidden;
 
     }
     .su li{
         position:absolute;
-        top:1rem;
+        top:0rem;
         left:0rem;
-        overflow: hidden;
 
     }
     .st li{
@@ -63,7 +63,6 @@
         background: #aaa;
         float: left;
         margin:0.1rem;
-        overflow: hidden;
 
     }
     .st{
@@ -71,7 +70,6 @@
         left:50%;
         transform: translate(-50%,-50%);
         top:8.2rem; 
-        overflow: hidden;
 
     }
     .st li.active{
@@ -100,5 +98,9 @@
         height:8.5rem;
         overflow: hidden;
     }
-    
+    .su{
+        overflow: hidden;
+        position: relative;
+        height:8.5rem;   
+    }
 </style>
