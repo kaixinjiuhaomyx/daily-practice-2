@@ -6,6 +6,7 @@ import Book from './views/book/Book.vue'
 import Photo from './views/photo/Photo.vue'
 import MusicList from './views/music/MusicList.vue'
 import Slide from './components/Slide.vue'
+import PhotoList from './views/photo/PhotoList.vue'
 
 Vue.use(Router);
 
@@ -35,6 +36,9 @@ export default new Router({
     },{
       path:'/slide',
       component: Slide
+    },{
+      path:'/photolist',
+      component: PhotoList
     },
     
   ],
