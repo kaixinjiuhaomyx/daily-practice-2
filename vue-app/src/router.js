@@ -37,7 +37,7 @@ export default new Router({
       path:'/slide',
       component: Slide
     },{
-      path:'/photolist',
+      path:'/photolist/:index',
       component: PhotoList
     },
     

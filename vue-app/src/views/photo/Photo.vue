@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul class="ul">
-            <li v-for='(src,index) in photoList' :key='index'>
-                <img :src="src.src" alt="" @click="pDetail">
+            <li v-for='(src,index) in $store.state.photoList' :key='index'>
+                <img :src="src.src" alt="" @click="pDetail(index)">
             </li>
         </ul>
         <div class="xx">
@@ -18,20 +18,24 @@
     export default {
         data(){
             return{
-                photoList:[]
+                // photoList:[]
             }
         },
         created(){
             Axios.get('/data/photodata.json')
             .then((result)=>{
                 // console.log(result.data.photoData);
-                this.photoList = result.data.photoData;
+                // 把数据给当前页面的photoList
+                // this.photoList = [...result.data.photoData];
                 // console.log(this.photoList)
+                // this.$store.state.photoList = result.data.photoData;
+                this.$store.commit('changPhoto',result.data.photoData)
             })
         },
         methods:{
-            pDetail(){
-                this.$router.push('/photolist');
+            pDetail(index){
+                this.$router.push('/photolist/'+index);
+                // console.log();
             }
         }
     }
@@ -45,5 +49,6 @@ img{
 .xx{
     height: 1rem;
     background: #fff;
+    color: #fff;
 }
 </style>
