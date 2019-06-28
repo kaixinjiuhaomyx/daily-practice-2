@@ -1,13 +1,12 @@
 <template >
     <div>
         <router-link to="/photo">
-             <v-touch class="bg">
+             <v-touch class="bg" v-on:swipeleft='next()' v-on:swiperight='before()'>
                 <!-- {{photoList[$route.params.index]}} -->
                 <!-- {{$store.state.photoList}} -->
-                <div v-on:swipeleft='next()'>
-                    <img  :src='photoList[$route.params.index].src'/>
-                </div>
-                
+                <!-- {{$route.params.index}} -->
+                    <img :src='photoList[iNow].src'/>
+                    <!-- <img :src='photoList[$route.params.index].src'/> -->
             </v-touch>
         </router-link>
        
@@ -21,14 +20,25 @@
     import Vue from 'vue';
     Vue.use(VueTouch, {name: 'v-touch'})
     export default {
+        data(){
+            return{
+                iNow:this.$route.params.index
+            }
+        },
         computed: {
             ...mapState(['photoList']),
             // VueTouch
         },
         methods:{
             next(){
-                this.$router.params.index++;
-                console.log(this.$router.params.index);
+                // index++;
+                // this.$route.params.index++;
+                // console.log(this.$route.params.index);
+                // console.log(this.iNow);
+                this.iNow++;
+            },
+            before(){
+                this.iNow--;
             }
         }
     }
@@ -49,4 +59,5 @@
         transform: translate(0,-50%)
 
     }
+    
 </style>
