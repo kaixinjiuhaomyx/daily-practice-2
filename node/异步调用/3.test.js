@@ -36,4 +36,4 @@ function echo(name){
     console.log(name);
 }
 
-waitFive('laoshan',echo);
+waitFive('laoshan',echo);    
