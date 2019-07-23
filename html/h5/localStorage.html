@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- localStorage生命周期是永久，除非主动清除localStorage信息，否则这些信息将永远存在。
+    存放数据大小为一般为5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。 -->
+
+    <script type="text/javascript">
+    localStorage.pagecount = 1; // 可设为访问页面次数
+
+    console.log(localStorage);
+
+    // 增
+    var key = 'sex';
+    var value = 'girl';
+
+    localStorage.setItem("name","mm"); // name:"mm"
+    localStorage.setItem(key,value); // sex:"girl"
+    localStorage.age = '25';  // age:"25"
+    localStorage.hobby = ['a','b','c'];
+
+        // localStorage.clear();
+
+    // 改  重新赋值就是改
+    localStorage.setItem("name","bb"); // name:"mm"
+    value = 'boy';
+    localStorage.setItem(key,value); // sex:"girl"
+
+    // 删
+
+    localStorage.removeItem('name');  //删除key 为name的数据
+    
+    // localStorage.clear(); //删除全部
+
+    // 查
+    console.log(localStorage.getItem("name"));  // 取key名为  name的
+    console.log(localStorage.name);  // 取key名为  name的
+    console.log(localStorage.key(0));  // 第二条数据的key名
+    console.log(localStorage.key(1));  // 第二条数据的key名
+    console.log(localStorage.key(2));  // 第二条数据的key名
+    console.log(localStorage.key(3));  // 第二条数据的key名
+    console.log(localStorage.valueOf());  // 取key名为  name的
+    
+    // 判断   是否有key
+    console.log(localStorage.hasOwnProperty("age"));
+    console.log(localStorage.hasOwnProperty("name"));
+
+    // 转换字符串
+    var hobby = localStorage.hobby.toLocaleString();
+    console.log(hobby); //a,b,c
+    
+        
+    </script>
+</body>
+</html>
