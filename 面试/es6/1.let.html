@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+    // <!-- let -->
+    // <!-- 变量提生:现用后定义时，相当于先定义为赋值，再定义-->
+
+    // 1.var有变量提升 let没有变量提升
+
+    // console.log(a);
+    // var a = 1; //输出undefind
+    /////////////////
+    // console.log(b);
+    // let b = 1; //报错
+
+    // 2.用let定义的变量不能重复声明
+    // var c = 1;
+    // var c = 2;
+    // console.log(c); //c=2
+    //////////////////////
+    // let d = 1;
+    // let d = 2;
+    // console.log(d); // 重复定义
+
+    // 3.
+    // var a = 2;
+    // function fn(){
+    //     var a = 1;
+    //     console.log(a);
+    // }
+    // fn(); // > 1
+    //////////////////
+    // var a = 2;
+    // function fn(){
+    //     // 局部作用域中不用var声明相当于全局
+    //     a = 1;
+    //     console.log(a);
+    // }
+    // fn(); // > 1
+    ////////////////////////
+    //  笔试题
+    // function fn(){
+    //     var a = b = 1;
+    //     // 相当于 var a = 1；b = 1；b没有用var定义 相当于全局
+    //     console.log(a);
+    // }
+    // fn();
+    // console.log(a); // a 未定义 没有在全局定义
+    // console.log(b);
+
+    // 3.let存在暂时性死区（临时失效区） 在let定义变量的作用域中任何与let定义的同名变量都不好使
+    // var a = 2;
+    // function fn(){
+    //     console.log(a);
+    //     var a = 1;
+    // }
+    // fn(); // undefind
+    ////////////////////
+    // var a = 2;
+    // function fn(){
+    //     console.log(a);
+    //     let a = 1;
+    // }
+    // fn(); // 不能在初始化前访问
+
+    // 4.块级作用域（全局作用域、函数作用域、块级作用域：任何一个大括号都是一个作用域）
+    // for(var i=0;i<5;i++){
+    //     console.log(i);
+    // }
+    // console.log(i);  // var 会把for循环中的i暴露给外部
+    ////////////////////////////////////
+    // for(let i=0;i<5;i++){
+    //     console.log(i);
+    // }
+    // console.log(i); // i undefined
+    /////////////////////////////
+    // {
+    //     let a = 1;
+    //     console.log(a);
+    // }
+    //     console.log(a);
+
+    // 闭包
+    // 函数执行后 内部的变量都被释放 
+    // 缺点：内存泄漏 ---内存溢出
+    // function fn1(){
+    //     var n = 100; //函数fn1()执行完后n不释放 因为有fn2()在调用n （有别人引用就不被释放）
+    //     function fn2(){
+    //         console.log(n);
+    //     }
+    //     return fn2;
+    // }
+    // fn1()(); //100
+
+    // 函数立即调用(只能调一次,没有函数名能找得到 )
+    (function(){
+        console.log(111);
+    })();
+    </script>
+    
+     
+    
+
+
+</body>
+</html>
+
+

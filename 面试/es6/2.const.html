@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const 定义常量 通常用大写字母命名
+        // ES6的块级作用域只对let和const好使
+
+        // 1.不能重复命名
+        // const NUM = 10;   
+        // var NUM = 10; 
+
+        // 2.const 存的是地址
+        // 定义常量，常量不能改，但因为定义的是地址，所以地址里的东西就能改
+        const NUM = {
+            name:'mm',
+            age:1
+        }
+        Object.freeze(NUM);//冻结 冻结后就不能改了
+        NUM.name = 'pp';
+        console.log(NUM);
+
+    </script>
+</body>
+</html>
