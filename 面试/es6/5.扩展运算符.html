@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        // 扩展运算符就是...
+        // 1克隆数组 得到一个新数组 地址改变
+        // 1.a扩展运算符
+        // var a = [1,2,3];
+        // var b = [...a];
+        //  b[1] =0;
+
+        // 1.b concat连接数组 返回新的数组
+        // var a = [1,2,3];
+        // var b = a.concat([6,6,7,8]);
+        // b[1] =0;
+
+        // console.log(a);
+        // console.log(b);
+
+        // 2扩展对象
+        var o1 = {
+            a:1,
+            b:2,
+        };
+        var o1 = {
+            c:1,
+            d:2,
+        };
+        var obj = {
+            ...o1,
+            ...o2,
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        // 箭头函数与普通函数的区别
+        // 1.箭头函数里面的函数时定义时指向
+        // 普通函数里面的this时运行时指向
+
+        // 箭头函数中没有this 但可以用 要到上一层去找
+        // 2.箭头函数没有arguments
+        // 3.箭头函数没有构造方法，不能new实例
+
+
+
+
+    //   <!--  匿名函数的this指向window -->
+    var aLi = document.getElementsByTagName('li');
+    // 1.let 形成闭包
+    // 2.把this提前定义好
+    // 3.箭头函数
+
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].onclick = function(){
+    //         setTimeout(function(){
+    //             console.log(aLi[i].innerHTML);
+    //         },1000);
+    //     }
+    // }
+    
+        // 2
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].onclick = function(){
+    //         var that = this; //that在点击事件的函数中都能用
+    //         setTimeout(function(){
+    //             console.log(that.innerHTML);
+    //         },1000); 
+    //     }
+    // }
+
+    // 3
+    // 箭头函数里面的函数时定义时指向
+    // 普通函数里面的this时运行时指向
+
+    // 箭头函数中没有this 但可以用 要到上一层去找
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].onclick = function(){
+    //         setTimeout(()=>{
+    //             console.log(this.innerHTML);
+    //         },1000);
+    //     }
+    // }
+//箭头函数中没有arguments****************
+// 想要获取不定参数要用扩展运算符
+    // function fn(){
+    //     console.log(arguments[0]);
+    // }
+    // fn(1);
+
+    var fn = (...args)=>{
+        // console.log(arguments[0]);
+        console.log(args);
+    }
+    fn(1,3,4,65);//(4) [1, 3, 4, 65]
+
+    // 简写
+    // var fn = (a) =>{
+    //     console.log('aa');
+    // }
+
+    // var fn = a => concole.log('ss');
+
+        
+    </script>
+    
+</body>
+</html>
