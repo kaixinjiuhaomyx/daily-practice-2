@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script>
+        // 1**********// this指向  原型链  prototype
+        // prototype 向对象添加属性
+
+        // function func(){    
+        //     this.name = "Hellen";
+        // }
+        // console.log(typeof func.prototype);
+
+        // func.prototype.getName = function(){
+        //     console.log(this.name);
+        // }
+        // const Obj = {};
+        // Obj.__proto__ = func.prototype;
+        // // console.log(func.prototype);
+        // func.call(Obj);
+        // if (Obj.getName){
+        //     console.log("yes");
+        //     Obj.getName();
+        // }
+        // console.log("end");
+
+        // 2*************
+        //  == 判断数据类型 类型不同时，先转化为相同类型，再比较
+        //  === 类型不同直接 false
+        //  valueOf() 方法可返回 Boolean 对象的原始值。
+        //  toString() 方法可把一个逻辑值转换为字符串，并返回结果。
+
+        // const arr = [];
+        // const testObj = {};
+        // console.log(arr === "");
+        // console.log(arr == "");
+        // // console.log(arr.toString);
+        // arr.toString = () => 1;
+
+        // console.log(arr === 1);
+        // console.log(arr == 1);
+        // arr.valueOf = () => 2;
+        // // arr.valueOf = () =>{
+        // //     return 2;
+        // // }
+
+        // console.log(arr ==2);
+        // arr.valueOf = () => testObj;
+        // console.log(arr == testObj);
+
+        // 3*************
+        // let a = 0;
+        // const obj = {
+        //     a:1,
+        //     b:function(){
+        //         console.log(this.a);
+        //     }
+        // }
+        // const obj1 = {
+        //     a:2
+        // }
+        // const fun = obj.b;
+        // fun();
+        // fun.apply(obj);
+        // fun.bind(obj1).apply(obj);
+        // const fun1 = fun.bind(obj1);
+        // new fun();
+
+        // 4***********
+        // function func(source){
+        //     var target = {};
+        //     for (var key in source){
+        //         if(Object.prototype.hasOwnProperty.call(source,key)){
+        //             if(typeof source[key] === 'object'){
+        //                 target[key] = func(source[key]);
+        //             }else{
+        //                 target[key] = source[key];
+        //             }
+        //         }
+
+        //     }
+        //     return target;
+        // }
+        // var a = {a1:"a1",a2:{b1:"b1",b2:"b2"},a3:undefined,a4:null,a5:1};
+        // var b = func(a);
+        // console.log(b);
+        
+
+        // 5***********
+
+    </script>
+    <style>
+        .flex{
+            display: flex;
+            width: 200px;
+            height: 100px;
+        }
+        .left{
+            flex:3 0 50px;
+            background:red;
+        }
+        .right{
+            flex:1 0 100px;
+            background: blue;
+        }
+    
+    </style>
+</body>
+</html>
