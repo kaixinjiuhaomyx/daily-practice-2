@@ -36,7 +36,6 @@
         // a.eat();
 
         // 继承
-
         // class Son extends User{
         //     constructor(l,c){
         //         super(l); //继承时 构造函数中先写super 继承父类
@@ -46,35 +45,31 @@
         //         console.log('sleep');
         //         console.log(this.age);
         //         console.log(this.hobby);
-                
         //     }
         // }
-
         // var s = new Son('22','swim');
         // s.eat();
         // s.sleep();
 
         // static 定义工具类时多用到
-        class User{
-            constructor(a){ // 构造函数 写属性
-                this.name = 'mm';
-                this.age = a;
-            }
-            static say(){ // 生命周期与类同级
-                console.log(this.name);
-                console.log('this.name');
-            }
-            eat(){
-                console.log('eating');
-                console.log(this.age);
-                
-            }
-        }
-
-        var a = new User('9');
-        a.eat();
-        // a.say();
-        User.say();
+        // class User{
+        //     constructor(a){ // 构造函数 写属性
+        //         this.name = 'mm';
+        //         this.age = a;
+        //     }
+        //     static say(){ // 生命周期与类同级
+        //         console.log(this.name);
+        //         console.log('this.name');
+        //     }
+        //     eat(){
+        //         console.log('eating');
+        //         console.log(this.age);
+        //     }
+        // }
+        // var a = new User('9');
+        // a.eat();
+        // // a.say();
+        // User.say();
 
 
 
