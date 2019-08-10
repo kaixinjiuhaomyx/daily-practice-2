@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 把类数组转化为真的数组  Array.from()
+        var obj = {
+            0:'qw',
+            1:'gfd',
+            2:'wertgh',
+            length:4
+        }
+        console.log(Array.from(obj));
+        
+        // var arr = [[23,4],[2,48],[3,84],[9,0],];
+        // // var set = new Set(arr);
+        // // console.log(set);
+        
+        // var map = new Map(arr);
+        // console.log(Array.from(map));
+
+        // 
+        // var arr = [1,2,5,8,0,5];
+        // arr.fill('a',2,4);  // 添加a 在arr的第2到第4个位置上
+        // console.log(arr);
+
+
+        // 循环*************
+        // forEach item:内容  index:索引
+        var arr = [1,2,4,5,6,8,9];
+        // arr.forEach((item,index)=>{
+        //     console.log(item,index);
+        // })
+
+        
+        // console.log(arr.map(function(item,index){ //有返回值  得到新数组
+        //     // console.log(item,index);
+        //     return item +5;
+        // }));
+        // console.log(arr);
+
+        // 过滤**********
+        // var arr1 = arr.filter(function(item,index){ // 不改变原数组
+        //     item +=1;
+        //     return item >4;
+        // });
+        // console.log(arr);
+        // console.log(arr1);
+
+
+
+
+    </script>
+</body>
+</html>

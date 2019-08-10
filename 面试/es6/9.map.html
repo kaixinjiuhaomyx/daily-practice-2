@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 键值可以是任何类型
+        // set添加  get获取
+        // 长度用size
+
+        var m = new Map();
+        m.set('a','1234');
+        m.set(1,1234);
+        m.set(true,'1234');
+
+        m.delete(1);
+        // m.clear();
+
+        console.log(m.get(1));
+        console.log(m.has(1));  //有没有1这个键值
+    
+    </script>
+</body>
+</html>
