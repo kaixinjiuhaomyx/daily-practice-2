@@ -13,7 +13,7 @@
         // {
             var arr = [1,2,3,2,4,8,5,2,3,1,5];
 
-            
+            // 方法2
             // var s = new Set(arr);
             // console.log( Array.from(s));
 
@@ -37,7 +37,7 @@
 
 
 
-        //     let arrResult = new Set();
+            // let arrResult = new Set();
         //     for(var i;i<arr.length;i++){
             
         //         arrResult.add(arr[i]);
@@ -49,9 +49,9 @@
 
         // set 中没有length 有size
         // 不能存重复值
-        // var set = new Set();
-        // set.add('1111');// add添加
-        // set.add(1111);
+        var set = new Set();
+        set.add('1111');// add添加
+        set.add(1111);
         // set.delete(1111); // 删除
         // set.clear(); //清除
 
@@ -68,10 +68,10 @@
         // var values = set.values();
         // console.log(values);
 
-        // var entries = set.entries();
-        // for(var key of entries){
-        //     console.log(key);
-        // }
+        var entries = set.entries();
+        for(var key of entries){
+            console.log(key);
+        }
         
     </script>
 </body>

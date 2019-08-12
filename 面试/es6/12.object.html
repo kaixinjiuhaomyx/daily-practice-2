@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象属性的简写
+        // 对象有属性名没有属性值时 属性值等于它属性名的同名变量的值
+      
+        // var name = '11';
+        // var obj = {
+        //     name,
+        //     age:12
+        // }
+
+        // 动态属性
+        // 对象属性简写与动态属性 不能同时用
+        // var try1 = 'my';
+        // var try2 = 'your';
+        // var obj = {
+        //     name,
+        //     age:12,
+        //     [try2+'Name']: 22222,
+        // }
+        // obj[try1+'Name'] = 'uuuuuuuuuuuu'; //添加动态属性
+        // console.log(obj);
+
+
+        // var obj = {
+        //     a:1,
+        //     b:2
+        // }
+        // console.log(Object.assign(obj,{c:3,d:4})); // 把对象都合并到第一个  改变原来的obj
+
+        console.log(-0 === +0);  //true
+        console.log(NaN === NaN);  //false
+
+        console.log(Object.is(-0,+0));  //false
+        console.log(Object.is(NaN,NaN));  //true
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

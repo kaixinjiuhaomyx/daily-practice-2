@@ -26,7 +26,6 @@
         // }
         // const Obj = {};
         // Obj.__proto__ = func.prototype;
-        // // console.log(func.prototype);
         // func.call(Obj);
         // if (Obj.getName){
         //     console.log("yes");
@@ -40,23 +39,25 @@
         //  valueOf() 方法可返回 Boolean 对象的原始值。
         //  toString() 方法可把一个逻辑值转换为字符串，并返回结果。
 
-        // const arr = [];
-        // const testObj = {};
-        // console.log(arr === "");
-        // console.log(arr == "");
-        // // console.log(arr.toString);
-        // arr.toString = () => 1;
+        const arr = [];
+        const testObj = {};
+        console.log(arr === "");
+        console.log(arr == "");
+        console.log(arr.toString);
+        arr.toString = () => 1;
+        // console.log(arr.toString);
+        // console.log(arr);
 
-        // console.log(arr === 1);
-        // console.log(arr == 1);
-        // arr.valueOf = () => 2;
-        // // arr.valueOf = () =>{
-        // //     return 2;
-        // // }
+        console.log(arr === 1);
+        console.log(arr == 1);
+        arr.valueOf = () => 2;
+        // arr.valueOf = () =>{
+        //     return 2;
+        // }
 
-        // console.log(arr ==2);
-        // arr.valueOf = () => testObj;
-        // console.log(arr == testObj);
+        console.log(arr ==2);
+        arr.valueOf = () => testObj;
+        console.log(arr == testObj);
 
         // 3*************
         // let a = 0;
