@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="flex">
+    <!-- <div class="flex">
         <div class="left"></div>
         <div class="right"></div>
-    </div>
+    </div> -->
+    <canvas width="250" height="250" id="aa"></canvas>
     <script>
         // 1**********// this指向  原型链  prototype
         // prototype 向对象添加属性
@@ -96,10 +97,15 @@
         
 
         // 5***********
+        var sg=document.querySelector('#aa');
+        var ge=sg.getContext('2d');
+    //绘制矩形
+        ge.fillStyle='red';   //填充颜色
+        ge.fillRect(50,50,20,10); //x y轴坐标 宽度  高度   默认黑色
 
     </script>
     <style>
-        .flex{
+        /* .flex{
             display: flex;
             width: 200px;
             height: 100px;
@@ -111,8 +117,11 @@
         .right{
             flex:1 0 100px;
             background: blue;
+        } */
+        canvas{
+            width: 250px;
+            height: 500px;
         }
-    
     </style>
 </body>
 </html>

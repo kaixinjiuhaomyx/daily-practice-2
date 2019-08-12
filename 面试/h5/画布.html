@@ -7,14 +7,90 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="myCanvas" width="200" height="100"></canvas>
-   
+    <!-- https://blog.csdn.net/weixin_38337068/article/details/74033838 -->
+    <!-- <canvas id="myCanvas" width="200" height="100"></canvas> -->
+    <canvas id="bd">
+        <span>sf</span>
+    </canvas>
 
     <script type="text/javascript">
-        var c=document.getElementById("myCanvas");
-        var cxt=c.getContext("2d");
-        cxt.fillStyle="#FF0000";
-        cxt.fillRect(10,10,150,75);
+        // var c=document.getElementById("myCanvas");
+        // var cxt=c.getContext("2d");
+        // // cxt.fillStyle="#FF0000";
+        // // cxt.fillRect(10,10,150,75);
+
+        // // cxt.moveTo(10,10);
+		// // cxt.lineTo(200,100);
+		// // cxt.stroke();
+
+        // cxt.arc(1 / 2 * width, 1 / 2 * height, R, 0, 2 * Math.PI);
+		// cxt.fill();//画实心圆
+        
+        var sg=document.querySelector('#bd');
+        sg.width=400;
+        sg.height=400;
+        var ge=sg.getContext('2d');
+        //绘制矩形
+        //     ge.fillStyle='red';   //填充颜色
+        //     ge.fillRect(50,50,100,100); //x y轴坐标 宽度  高度   默认黑色
+        //     ge.strokeStyle='blue';//边框的颜色
+        //     ge.lineWidth='5';   //边框的大小
+        //     ge.strokeRect(50,50,100,100); //边框 
+        //绘制路径(线条)
+        // ge.lineWidth='5';   //边框的大小
+        // ge.strokeStyle='brown';//边框的颜色
+        // // ******************ge.lineCap='round';  //线的断点样式,round为圆角,spuare 出来的长度为宽度一半10px。
+
+        // ge.beginPath();//开始执行
+        // ge.moveTo(100,100); //开始的位置
+        // ge.lineTo(200,100);//第二个位置
+        // ge.lineTo(200,10);//第三个位置
+        // ge.lineTo(100,10);//第三个位置
+        // ge.closePath();//起点到终点的连接闭合
+        // ge.stroke();//绘制一条线
+        
+        // 渐变色
+        // var grd=ge.createLinearGradient(150,100,150,300);  //起点坐标 终点坐标
+        // grd.addColorStop(0,'red');  //位置和颜色
+        // grd.addColorStop(0.5,'green');
+        // grd.addColorStop(1,'blue');
+
+        // ge.fillStyle=grd;
+        // ge.fillRect(100,100,200,200);
+        //文字
+
+        ge.fillStyle='red';//内容颜色
+        ge.lineWidth=1;//描边大小
+        ge.strokeStyle='blue';//改变描边颜色（边框）
+        ge.font='60px 宋体';//改变样式
+        ge.textBaseline='top';//改变基点
+        ge.fillText('文字在干吗',0,0);//填写内容 坐标位置
+        ge.strokeText('文字',0,0);//描边 填写哪个就描边哪个 坐标位置
+
+
+
+// ge.shadowOffsetX=10; //x轴坐标
+// ge.shadowOffsetY=10; //y轴坐标
+// ge.shadowBlur=1;  //模糊宽度
+// ge.shadowColor='#d8d8d8'; //模糊颜色
+
+        
+
+
     </script>
+
+    <style>
+        
+        body{
+        background:#303B52;
+        }
+        canvas{
+        background: white;
+        /*width: 500px;
+        height: 500px;*/
+        /*不能在这里加，因为会默认帮你比例,因此在JS里赋予*/
+
+        }
+    </style>
 </body>
 </html>
