@@ -18,7 +18,7 @@
         
        
         //*********************
-        //window.onload 等页面中所有子元素加载完再执行
+        //window.onload 等页面中所有资源加载完再执行
         //
         // window.onload = function(){
             var oDiv = document.getElementById('Div1');
@@ -36,11 +36,11 @@
         
         //jqurey语法
         //**********************
-        //文档就绪函数 等页面中的结构执行完再执行 相当于window.onload 但比window.onload快
+        // 文档就绪函数 等页面中的结构（HTML结构）执行完再执行 相当于window.onload 但比window.onload快
         // $(document).ready(function(){
         //     $('#Div1').css('background','red');
         // })
-        //简写语法为
+        // 简写语法为
         // $(function(){
         //     $('#Div1').css('background','green');
         // })
@@ -59,7 +59,7 @@
         // var $Div = $('#Div1');
         // $Div.css('background','#005691');
 
-        //jq对象转化为原生对象
+        // jq对象转化为原生对象
         // console.log($Div.get(0)) ;
         // console.log($Div[0] );
 
