@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <div class="aa">
+qqqqqqqqq
+    </div>
+    <script>
+
+    function queryClassName(node, name) {  
+        var starts = '(^|[ \n\r\t\f])',
+            ends = '([ \n\r\t\f]|$)';
+	    var array = [],
+	        regex = new RegExp(starts + name + ends),
+	        elements = node.getElementsByTagName("*"),
+	        length = elements.length,
+	        i = 0,
+	        element;
+
+	    while (i < length) {
+	        element = elements[i];
+	        if (regex.test(element.className)) {
+	            array.push(element);
+	        }
+
+	        i += 1;
+	    }
+
+	    return array;
+	}
+    
+    </script> -->
+
+    <script>
+function getElementsByClassName(className){  
+    var elements = [];  
+
+    if(!document.getElementsByClassName){  
+        var domNodes = document.getElementsByTagName("*");  
+        for(var i =0 ;i<domNodes.length;i++){  
+            if(domNodes[i].className){  
+                var classNames = domNodes[i].className.split(" "); /*这里其实还要考虑类名间隔大于一个空格的情况*/  
+                for(var j = 0;j<classNames.length;j++){  
+                    if(classNames[j]==className){  
+                        elements.push(domNodes[i]);              
+                    }  
+                }  
+            }  
+        }  
+    }else{  
+　　　　 /*这里既然浏览器支持这个行为，为何不直接return document.getElementsByClassName(className) ？？？*/
+        var domNodes = document.getElementsByClassName(className);  
+        for(var i =0 ;i<domNodes.length;i++){  
+            elements.push(domNodes[i]);      
+        }  
+    }  
+    return elements;  
+} 
+    
+    
+    </script>
+    
+</body>
+</html>

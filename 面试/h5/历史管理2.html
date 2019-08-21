@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="35选7" id="input1" />
+    <input type="button" value="向前" id="front" />
+    <input type="button" value="向后" id="later" />
+    <div id="div1"></div>
+
+    <script>
+        //pushState : 三个参数：1.要存的内容 2.标题(一般写个空的字符串) 3.地址(可选)
+        
+        //history.pushState({name: "menglong"}, '', "li.html");
+        
+        window.onload = function(){
+            var oInput = document.getElementById('input1');
+            var oFront = document.getElementById('front');
+            var oLater = document.getElementById('later');
+            var oDiv = document.getElementById('div1');
+
+oInput.onclick = function(){ // 产生新页面
+    var obj={};//对象
+    var arr=[];//数组
+    location.hash=randomNum(35,7);
+    arr =location.hash ;
+};
+window.onpopstate = function(ev){  //历史管理改变，就会触发
+    oDiv.innerHTML=location.hash;
+};
+            
+             oFront.onclick = function(){
+                history.forward(); // 前进一个
+            } 
+            
+            oLater.onclick = function(){
+                history.back(); // 后退一个
+            }
+            function randomNum(alls,now){
+            
+                var arr = [];
+                var newArr = [];
+                
+                for(var i=1;i<=alls;i++){
+                    arr.push(i);
+                }
+                
+                
+                for(var i=0;i<now;i++){
+                    newArr.push( arr.splice( Math.floor(Math.random()*arr.length) ,1 ) );
+                }
+                
+                return newArr;
+            
+            }
+            
+        };
+
+    </script>
+</body>
+</html>

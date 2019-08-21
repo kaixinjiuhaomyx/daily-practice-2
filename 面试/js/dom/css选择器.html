@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="page">
+        <div class="content main">
+            <div class="refer">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+                </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //根据上述HTML结构，完善如下JavaScript代码中的“your code here”部分，使得click事件中的注释要求符合预期：
+    var genCssSelector = function(){
+        // your code here
+
+        }
+
+    document.addEventListener('click', function(e){
+        //点击li时，返回：html body #page .content.main .refer ul li
+        console.log(genCssSelector(e.target));
+    })
+
+    </script>
+
+</body>
+
+</html>
