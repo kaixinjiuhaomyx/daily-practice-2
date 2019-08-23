@@ -1,40 +1,41 @@
-// var old = [6,5,9,3,7,9,23,9];
+var arr1 = [5,4,8,1,3,7,0,9,2,6];
 
-// function bubbleSort(arr) {
-//     var len = arr.length;
-//     for (var i = 0; i < len; i++) {
-//         for (var j = 0; j < len - 1 - i; j++) {
-//             if (arr[j] > arr[j+1]) {        //相邻元素两两对比
-//                 var temp = arr[j+1];        //元素交换
-//                 arr[j+1] = arr[j];
-//                 arr[j] = temp;
-//             }
-//         }
-//     }
-//     return arr;
-// }
-
-// var ne = bubbleSort(old);
-// console.log(ne);
-
-function f1() {
-
-    var n = 999;
-
-    nAdd = function () {
-        n += 1;
-        console.log(n)
+function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len; i++) {
+        for (var j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {        //相邻元素两两对比
+                var temp = arr[j+1];        //元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            } 
+        }
+        console.log("第"+(i+1)+"次循环",arr);
     }
-
-    function f2() {
-        console.log(n);
-    }
-    return f2;
+    return arr;
 }
-var result = f1();
 
-result(); //  999
+bubbleSort(arr1);
 
-nAdd();  // 1000
 
-result(); // 1000
+// function f1() {
+
+//     var n = 999;
+
+//     nAdd = function () {
+//         n += 1;
+//         console.log(n)
+//     }
+
+//     function f2() {
+//         console.log(n);
+//     }
+//     return f2;
+// }
+// var result = f1();
+
+// result(); //  999
+
+// nAdd();  // 1000
+
+// result(); // 1000
