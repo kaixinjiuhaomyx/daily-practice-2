@@ -10,9 +10,10 @@ function selectionSort(arr) {
                 minIndex = j;                 //将最小数的索引保存
             }
         }
-        temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
+        // temp = arr[i];
+        // arr[i] = arr[minIndex];
+        // arr[minIndex] = temp;
+        [arr[i],arr[minIndex]] = [arr[minIndex],arr[i]];  // 解构
         console.log("第"+(i+1)+"次循环",arr);
     }
     return arr;
