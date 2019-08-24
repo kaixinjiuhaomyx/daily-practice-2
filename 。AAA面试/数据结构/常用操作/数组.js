@@ -21,10 +21,10 @@
 
 
 // 不改变数组自身的方法
-var arr1 = [1,2,3];
-var arr2 = [4,5,6];
+let arr1 = [1,2,3];
+let arr2 = [4,5,6];
 
-
+let NewArr
 
 
 
