@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装栈</title>
+</head>
+<body>
+    <script>
+        function zhan(){
+            this.item = [];
+            len = this.item.length;
+            
+            // 1 添加新元素
+            this.push = function(ele){
+                this.item.push(ele);
+            }
+
+            // 2 删除元素 并返回删除元素
+            zhan.prototype.pop = function(ele){
+                return this.item.pop();
+            }
+
+            // 3 返回栈顶元素
+            zhan.prototype.peek = function(){
+                return this.item[len-1];
+            }
+
+            // 4 判断栈里是否有元素
+            zhan.prototype.isEmpty = function(){
+                return this.item.length == 0;
+            }
+
+            zhan.prototype.toString = function(){
+                return this.item.join(' ');
+            }
+        }
+        
+        // var zhan1 = new zhan();
+        // zhan1.push(0);
+        // zhan1.push(1);
+        // zhan1.push(2);
+        // zhan1.push(3);
+
+        // // zhan1.pop();
+        // console.log(zhan1);
+
+        // // zhan1.peek();
+        // // console.log(zhan1.isEmpty());
+        // // console.log(zhan1.toString());
+        // console.log(zhan1);
+     
+        // 二进制
+        function tenToTwo(num){
+            var Two = new zhan();
+            // while(parseInt(num/2) > 0){
+            while(num > 0){
+                let yu = num%2;
+                Two.push(yu);
+                num = parseInt(num/2);
+            }
+            // console.log(Two);
+            var Ptwo = '';
+            var emp = [];
+ 
+            while(!Two.isEmpty()){
+                Ptwo += Two.pop();
+            }
+            return Ptwo;
+        }
+        alert(tenToTwo(10));
+        alert(tenToTwo(233));
+        alert(tenToTwo(1000));
+
+    </script>
+</body>
+</html>

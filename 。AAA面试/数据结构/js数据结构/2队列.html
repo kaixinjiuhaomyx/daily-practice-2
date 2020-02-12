@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>队列</title>
+</head>
+<body>
+<script>
+    function duiLie(){
+        this.item = [];
+
+        // 方法
+        // 队列操作的方法
+        // enter queue方法
+        duiLie.prototype.enqueue = function(ele){
+            this.item.push(ele);
+        }
+
+        // delete queue方法
+        duiLie.prototype.dequeue = function(){
+            return this.item.shift();
+        }
+
+        // 查看前端的元素
+        duiLie.prototype.front = function(){
+            return this.item[0];
+        }
+
+        // 查看队列是否为空
+        duiLie.prototype.isEmpty = function(){
+            return this.item.length == 0;
+        }
+
+        // toString
+        duiLie.prototype.toString = function(){
+            return this.item.join(' ');
+        }
+
+        // 队列中元素个数
+        duiLie.prototype.side = function(){
+            return this.item.length;
+        }
+    } 
+    
+    var queue = new duiLie();
+
+    // 在队列中添加元素
+    queue.enqueue("abc")
+    queue.enqueue("cba")
+    queue.enqueue("nba")
+
+    // 查看一下队列前端元素
+    alert(queue.front())
+
+    // 查看队列是否为空和元素个数
+    alert(queue.isEmpty());
+    alert(queue.side());
+
+    
+</script>
+</body>
+</html>
