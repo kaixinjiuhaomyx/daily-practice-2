@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function PriorityQueue (){
+        var item = [];
+
+        var priority = function(_element, _priority){
+            this.element = _element;
+            this.priority = _priority;
+        }
+
+        // this.enqueue = function(_element, _priority){
+        PriorityQueue.prototype.enqueue = function(_element, _priority){
+            var Obj = new priority(_element, _priority);
+
+            if(item.length == 0){
+                item.push(Obj);
+            }else{
+                var num = true;
+                for(let i=0; i<item.length; i++){
+
+                    if(Obj.priority < item[i].priority){
+                        item.splice(i,0,Obj);
+                        num = false;
+                        break;
+                    }
+                }
+                if(num){
+                    item.push(Obj);
+                }
+            }
+        }
+
+        PriorityQueue.prototype.dequeue = function(){
+            return item.shift();
+        }
+        this.fornt = function(){
+            return item[0];
+        }
+        this.All = function(){
+            return item;
+        }
+    }
+
+    // 测试代码
+    var pq = new PriorityQueue();
+    pq.enqueue('abc3',5);
+    pq.enqueue('abc1',3);
+    pq.enqueue('abc2',4);
+    pq.enqueue('abc5',7);
+    pq.enqueue('abc4',6);
+    pq.dequeue();
+    
+
+    console.log(pq.fornt());
+    console.log(pq.All());
+
+</script>
+</body>
+</html>

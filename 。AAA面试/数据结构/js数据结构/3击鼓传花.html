@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>击鼓传花</title>
+</head>
+<body>
+    <script>
+        function duilie(){
+            var item = [];
+            // var len = this.item.length;
+            // 进
+            duilie.prototype.enqueue = function(ele){
+                item.push(ele);
+            }
+
+            // 出
+            duilie.prototype.dequeue = function(){
+                return item.shift();
+            }
+
+            // 显示第一个元素
+            duilie.prototype.fornt = function(){
+                return item[0];
+            }
+            duilie.prototype.second = function(){
+                return item[1];
+            }
+            // 队列中的元素个数
+            duilie.prototype.side = function(){
+                return item.length;
+            }
+        }
+        
+        function jiGuChuanHua(eleList,num){
+            var obj = new duilie();
+
+            // 把eleList中的元素遍历到队列中
+            for(var i=0; i<eleList.length; i++){
+                obj.enqueue(eleList[i]);
+            }
+
+            while( obj.side() > 1){
+                for(var j=0; j<num; j++){
+                    obj.enqueue(obj.fornt());
+                    obj.dequeue();
+                }
+
+                if(obj.side() > 1){
+                    obj.dequeue();
+                }
+            }
+
+            alert(obj.fornt());
+            alert(obj.side());
+            console.log(obj);
+        }
+
+        var ren = ['0a','1b','2c','3d','4e','5f','6g'];
+        var names = ['John','Jack','Camila','Ingrid','Carl'];
+        jiGuChuanHua(names,7);
+        jiGuChuanHua(ren,3);
+    </script>
+</body>
+</html>
