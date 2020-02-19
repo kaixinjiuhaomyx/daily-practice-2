@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单链表</title>
+</head>
+<body>
+<script>
+    function Linked(){
+        this.head = null;
+        this.length = 0;
+
+        function Node(ele){
+            this.ele = ele;
+            this.next = null;
+        }
+
+        // 向列表尾部添加项
+        Linked.prototype.append = function(ele){
+            var newLinked = new Node(ele);
+
+            if(this.length == 0){  // 链表中没有元素
+                this.head = newLinked;
+            }else{                 // 链表中有元素
+                var current = this.head;
+                while( current.next ){
+                    current = current.next;
+                }
+                current.next = newLinked;
+            }
+            this.length = this.length + 1;
+
+        }
+
+        // toString
+        Linked.prototype.toString = function(){
+            var str = '';
+            var current = this.head;
+
+            while(current){
+                str = str + ' ' + current.ele;
+                current = current.next;
+            }
+            return str;
+        }
+
+        // 向特定位置添加项
+        Linked.prototype.insert = function(position,element){
+            if(position > this.length || position < 0){
+                return false;
+            };
+
+            // 创建新节点
+            var newLinked = new Node(element);
+            var current = this.head;
+            var previous = null;
+            var index = 0;
+
+            if(position == 0){   // 1插入到头部
+                newLinked.next = current; 
+                this.head = newLinked;
+            }else{
+                // 找到要插入的位置
+                while(index < position){
+                    previous = current;
+                    current = current.next;
+                    index++;
+                }
+
+                previous.next = newLinked;
+                newLinked.next = current;
+            }
+
+            this.length = this.length + 1;
+
+            return true;
+        }
+
+        // 修改相对位置的元素
+        Linked.prototype.update = function(position,element){
+            if(position > this.length || position < 0){
+                return false;
+            };
+
+            var current = this.head;
+            index = 0;
+
+            while(index < position){
+                current = current.next;
+                index++;
+            }
+            current.ele = element;
+        }
+
+        // 返回元素在列表中的索引
+        Linked.prototype.indexOf = function(element){
+            var current = this.head;
+            var index = 0;
+
+            while(index < this.length){
+                if(current.ele == element){
+                    return index;
+                }
+                index++;
+                current = current.next;
+            }
+
+            return -1;
+        }
+
+        // 获取相对位置的元素
+        Linked.prototype.get = function(position){
+            if(position > this.length || position < 0){
+                return false;
+            };
+
+            var current = this.head;
+            var index = 0;
+
+            while(index < position){
+                current = current.next;
+                index++;
+            }
+
+            return current.ele;
+        }
+    
+        // 移除给定位置节点
+        Linked.prototype.removeAt = function(position){
+            if(position > this.length || position < 0){
+                return false;
+            };
+
+            var current = this.head;
+            var previous = null;
+            var index = 0;
+            
+            if(position == 0){
+                this.head = current.next;
+            }else{
+                while(index < position){
+                    previous = current;
+                    current = current.next;
+                    index++;
+                }
+
+                previous.next = current.next;
+            }
+
+            this.length--;
+
+            return current.ele;
+        }
+
+        // 删除元素信息
+        Linked.prototype.remove = function(element){
+            var current = this.head;
+            var previous = null;
+            var index = 0;
+            var obj = true;
+
+            // 判断是否是第一个
+            if(element == this.head.ele){
+                this.head = current.next;
+                this.length--;
+                return true;
+            }else{
+                while(index < this.length){
+                    if(current.ele != element){
+                        previous = current;
+                        current = current.next;
+                    }else{
+                        obj = false;
+                    }
+                    index++;
+                }
+
+                if(obj){
+                    return false;
+                }else{
+                    previous.next = current.next;
+                    this.length--;
+                    return true;
+                } 
+            }
+
+            // var index = this.indexOf(element)
+            // return this.removeAt(index)
+        }
+
+        // 判断链表是否为空
+        Linked.prototype.isEmpty = function(){
+            var obj = true;
+            if(this.length){
+                obj = false;
+            }
+            return obj;
+        }
+
+        // 获取列表长度
+        Linked.prototype.side = function(){
+            return this.length;
+        }
+
+        // 获取第一个节点
+        Linked.prototype.getFirst = function(){
+            return this.head.ele;
+        }
+    }
+
+    var pre = new Linked();
+    pre.append('qqq0');
+    pre.append('qqq1');
+    pre.append('qqq2');
+    pre.append('qqq3');
+    pre.append('qqq4');
+    pre.append('qqq5');
+    
+    // pre.insert(0,'rrr');
+    // pre.insert(1,'ere');
+    // pre.insert(4,'ttt');
+
+    // pre.update(3,'uuuuu')
+    // console.log(pre.get(3));
+
+    // pre.removeAt(0);
+
+    // console.log(pre.indexOf('qqq5'));
+
+    // pre.remove('qqq0');
+    // pre.remove('qqq2');
+    // pre.remove('qqq3');
+    // pre.remove('qqq99');
+
+    // console.log(pre.isEmpty());
+    // console.log(pre.side());
+
+    console.log(pre.getFirst());
+    
+
+    console.log(pre.toString());
+</script>
+</body>
+</html>
