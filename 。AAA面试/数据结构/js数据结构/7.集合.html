@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Sett(){
+        this.items = {};
+
+        // 操作
+        // add添加
+        Sett.prototype.add = function(value){
+            if(this.has(value)){
+                return false;
+            }
+            this.items[value] = value; // 用变量赋值所以用[]
+            return true;
+        }
+
+        // has判断集合中是否有元素value
+        Sett.prototype.has = function(value){
+            return this.items.hasOwnProperty(value);
+        }
+
+        // remove删除元素
+        Sett.prototype.remove = function(value){
+            if( !this.has(value)){
+                return false;
+            }
+
+            delete this.items[value];
+            return true;
+        }
+
+        // clear清除集合
+        Sett.prototype.clear = function(){
+            this.items = {};
+            return true;
+        }
+
+        // size方法
+        Sett.prototype.size = function(){
+            return Object.keys(this.items).length;
+        }
+        
+        // 获取集合中的所有值
+        Sett.prototype.value = function(){
+            return Object.keys(this.items);
+        }
+        
+    }
+
+    var set1 = new Sett();
+    set1.add('s1');
+    set1.add('s1');
+    set1.add('s2');
+    set1.add('s3');
+
+    console.log(set1.has('s3'));
+    
+    set1.remove('s3');
+
+    // set1.clear('s3');
+    console.log(set1.size());
+    console.log(set1.value());
+
+    console.log(set1);
+</script>    
+</body>
+</html>
